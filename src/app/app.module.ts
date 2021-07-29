@@ -17,8 +17,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent,FooterComponent],
-  entryComponents: [NavbarComponent,FooterComponent],
+  declarations: [AppComponent],
+  entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule, BrowserAnimationsModule,MatSelectModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, UserService, ChowkidaarGuard,{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true } ],
   bootstrap: [AppComponent],

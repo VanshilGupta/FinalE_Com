@@ -9,6 +9,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 
 import { ProductPage } from './product.page';
 import { FooterComponent } from '../footer/footer.component';
+import { HomepagePageModule } from '../homepage/homepage.module';
 
 @NgModule({
   imports: [
@@ -16,9 +17,8 @@ import { FooterComponent } from '../footer/footer.component';
     FormsModule,
     IonicModule,
     ProductPageRoutingModule,
-    
+    HomepagePageModule
   ],
-  declarations: [ProductPage,NavbarComponent,
-    FooterComponent],
+  declarations: [ProductPage],
 })
 export class ProductPageModule {}

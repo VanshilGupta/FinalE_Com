@@ -1,6 +1,23 @@
+
 .backimg{
     background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwySWStYv92KND9vmSotSfYCE76LjsLQx12Q&usqp=CAU');
     background-size: 100% 100%;
     width: 100%;
     height: 400px;
 }
+hr.solid {
+    border-top: 2px solid rgb(8, 0, 0);
+  }
+.vl{
+  border-left: 3px solid rgb(218, 31, 31);
+  height: 200px;
+  position: absolute;
+  left: 35%;
+ 
+  
+}
+.logo{
+    font-family: "Brush Script MT", cursive;
+    font-size: 60px;
+}
+

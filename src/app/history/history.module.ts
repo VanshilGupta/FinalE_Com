@@ -9,14 +9,16 @@ import { HistoryPageRoutingModule } from './history-routing.module';
 import { HistoryPage } from './history.page';
 import {NavbarComponent} from '../navbar/navbar.component';
 import {FooterComponent} from '../footer/footer.component';
+import { HomepagePageModule } from '../homepage/homepage.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HistoryPageRoutingModule
+    HistoryPageRoutingModule,
+    HomepagePageModule
   ],
-  declarations: [HistoryPage,NavbarComponent,FooterComponent]
+  declarations: [HistoryPage]
 })
 export class HistoryPageModule {}

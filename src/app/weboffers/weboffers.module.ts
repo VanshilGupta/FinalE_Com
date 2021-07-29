@@ -10,6 +10,7 @@ import { WeboffersPage } from './weboffers.page';
 import { NgxWheelModule } from 'ngx-wheel';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
+import { HomepagePageModule } from '../homepage/homepage.module';
 
 
 
@@ -18,8 +19,9 @@ import { FooterComponent } from '../footer/footer.component';
     CommonModule,
     FormsModule,
     IonicModule,
-    WeboffersPageRoutingModule,NgxWheelModule
+    WeboffersPageRoutingModule,NgxWheelModule,
+    HomepagePageModule
   ],
-  declarations: [WeboffersPage,NavbarComponent,FooterComponent]
+  declarations: [WeboffersPage]
 })
 export class WeboffersPageModule {}

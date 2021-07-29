@@ -12,6 +12,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { DropdownComponent } from '../dropdown/dropdown.component';
 import {MatSelectModule} from '@angular/material/select';
+import { HomepagePageModule } from '../homepage/homepage.module';
 
 @NgModule({
   imports: [
@@ -20,9 +21,8 @@ import {MatSelectModule} from '@angular/material/select';
     IonicModule,
     WomenPageRoutingModule,
     MatSelectModule,
-   
+    HomepagePageModule
   ],
-  declarations: [WomenPage, DropdownComponent, NavbarComponent, 
-    FooterComponent]
+  declarations: [WomenPage, DropdownComponent]
 })
 export class WomenPageModule {}

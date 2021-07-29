@@ -17,3 +17,63 @@
         transition: all 0.50s;
     }
 }
+.card {
+  
+  
+  margin: auto;
+ 
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+// .card button {
+//   border: none;
+//   outline: 0;
+//   padding: 12px;
+//   color: white;
+//   background-color: #000;
+//   text-align: center;
+//   cursor: pointer;
+//   width: 100%;
+//   font-size: 18px;
+// }
+
+// .card:hover {
+//     -ms-transform: scale(1.1); /* IE 9 */
+//     -webkit-transform: scale(1.1); /* Safari 3-8 */
+//     transform: scale(1.1); 
+//   }
+//   .hover {
+//     -ms-transform: scale(1.1); /* IE 9 */
+//     -webkit-transform: scale(1.1); /* Safari 3-8 */
+//     transform: scale(1.1); 
+//   }
+  .link:hover {
+    -ms-transform: scale(1.02); /* IE 9 */
+    -webkit-transform: scale(1.02); /* Safari 3-8 */
+    transform: scale(1.02); 
+  }
+  .image-hover-highlight {
+    -webkit-transition: all 0.50s;
+    transition: all 0.50s;
+    &:hover {
+        border: 3px solid black;
+        filter: brightness(130%);
+        -webkit-filter: brightness(130%);
+        -moz-filter: brightness(130%);
+        -o-filter: brightness(130%);
+        -ms-filter: brightness(130%);
+        -webkit-transition: all 0.50s;
+        transition: all 0.50s;
+    }
+}
+table, th, td {
+  border: 1px solid black;
+  width: 70%;
+  height: 48px;
+}
+tr:nth-child(even){background-color: #d4d3f0};

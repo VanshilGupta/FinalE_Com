@@ -1,13 +1,159 @@
 <app-navbar></app-navbar>
 <ion-content>
-<div class="container-fluid">
+<div class="container-fluid ">
+  <div class="row px-2 mt-2 text-center link " style="padding: 50px; margin: 80px;background-color: rgb(133, 208, 231);">
+      
+    <div class="col-md-3">
+      <ion-slides class="slide-padding" pager="true" [options]="slideOpts1">
+        <ion-slide *ngFor="let story of topStories1">
+        
+            <ion-img src="{{story.picture}}" style="height: 400px;"></ion-img>
+            
+        
+        </ion-slide>
+    </ion-slides>
+    </div>
+    <div class="col-md-3">
+      <ion-slides class="slide-padding" pager="true" [options]="slideOpts2">
+        <ion-slide *ngFor="let story of topStories2">
+        
+            <ion-img src="{{story.picture}}" style="height: 400px;"></ion-img>
+            
+        
+        </ion-slide>
+    </ion-slides>
+    </div>
+    <div class="col-md-3">
+      <ion-slides class="slide-padding" pager="true" [options]="slideOpts3">
+        <ion-slide *ngFor="let story of topStories3">
+        
+            <ion-img src="{{story.picture}}" style="height: 400px;"></ion-img>
+            
+        
+        </ion-slide>
+    </ion-slides>
+    </div>
+    <div class="col-md-3">
+      <ion-slides class="slide-padding" pager="true" [options]="slideOpts4">
+        <ion-slide *ngFor="let story of topStories4">
+        
+            <ion-img src="{{story.picture}}" style="height: 400px;"></ion-img>
+            
+        
+        </ion-slide>
+    </ion-slides>
+    </div>
+    
+    
+  </div>
+  <div class="row px-2 mt-2 link" style="padding: 50px; margin: 80px;background-color: rgb(227, 240, 227);">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-6 ">
+          <table style="margin-left: 52px;">
+            <tr>
+              <th>PRIZE NO</th>
+              <th>PRIZE AMOUNT</th>
+            </tr>
+            
+            <tr>
+              <td>PRIZE 0</td>
+              <td>Rs 5/-</td>
+            </tr>
+            <tr>
+              <td>PRIZE 1</td>
+              <td>Rs 10/-</td>
+            </tr>
+            <tr>
+              <td>PRIZE 2</td>
+              <td>Rs 8/-</td>
+            </tr>
+            <tr>
+              <td>PRIZE 3</td>
+              <td>Rs 1/-</td>
+            </tr>
+            <tr>
+              <td>PRIZE 4</td>
+              <td>Rs 40/-</td>
+            </tr>
+            <tr>
+              <td>PRIZE 5</td>
+              <td>Rs 3/-</td>
+            </tr>
+            <tr>
+              <td>PRIZE 6</td>
+              <td>Rs 15/-</td>
+            </tr>
+            <tr>
+              <td>PRIZE 7</td>
+              <td>Rs 13/-</td>
+            </tr>
+            <tr>
+              <td>PRIZE 8</td>
+              <td>Rs 24/-</td>
+            </tr>
+            <tr>
+              <td>PRIZE 9</td>
+              <td>Rs 9/-</td>
+            </tr>
+            <tr>
+              <td>PRIZE 10</td>
+              <td>Rs 29/-</td>
+            </tr>
+            <tr>
+              <td>PRIZE 11</td>
+              <td>Rs 17/-</td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-6">
+          <h3 style="text-align: left;text-decoration-color: rgb(247, 43, 43);"><strong><p style="font-size: 25px;font-style: oblique;">Press<br> the wheel <br> land on a random prize</p></strong></h3>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col-md-6">
+      <div class="row text-center">
+        <button (click)="spin()" class="btn-primary button-hover-highlight" style="width: 300px;height: 100px;" >SPIN</button>
+        <button (click)="reset()"class="btn-secondary px-2 button-hover-highlight" style="width: 300px;height: 100px;">Reset</button>
+      </div>
+      <div class="row text-center">
+        <ngx-wheel
+    #wheel
+    style="padding-left: 50px;"
+    width='500'
+    height='500'
+    spinDuration='8'
+    [items]='items'
+    [innerRadius]='20'
+    [spinAmount]='10'
+    [textOrientation]='textOrientation'
+    [textAlignment]='textAlignment'
+    pointerStrokeColor='black'
+    pointerFillColor='gold'
+    [idToLandOn]='idToLandOn'
+    (onSpinStart)='before()'
+    (onSpinComplete)='after()'
+  ></ngx-wheel>
+      </div>
+    </div>
+  </div>
 
- <div class="row mt-5">
+ <!-- <div class="row mt-5">
    <div class="col-md-6">
      <div class="row">
        <div class="col-md-6"><h3 style="text-align: left;text-decoration-color: rgb(247, 43, 43);"><strong><p style="font-size: 25px;font-style: oblique;">Press<br> the wheel <br> land on a random prize</p></strong></h3>
         <h3 style="text-align: left;text-decoration-color: rgb(247, 43, 43);"><p style="font-size: 25px;font-style: oblique;"><strong>press the button to land on the corresponding prize</strong></p></h3></div>
        <div class="col-md-6">
+        
+       </div>
+     </div>
+    
+    
+   </div>
+   <div class="col-md-6">
+     <div class="row">
+       <div class="col-md-6 ">
         <div class="buttons">
           <button (click)="spin()" class="btn-primary button-hover-highlight" style="width: 190px;height: 100px;" >SPIN</button>
           
@@ -17,10 +163,7 @@
         </div>
        </div>
      </div>
-    
-    
-   </div>
-   <div class="col-md-6">
+     <div class="col-md-6"></div>
     <ngx-wheel
     #wheel
     width='500'
@@ -37,10 +180,10 @@
     (onSpinStart)='before()'
     (onSpinComplete)='after()'
   ></ngx-wheel>
-  >
+  
   
    </div>
- </div> 
+ </div>  -->
 
 
 

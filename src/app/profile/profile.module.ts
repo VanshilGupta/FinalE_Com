@@ -9,14 +9,16 @@ import {NavbarComponent} from '../navbar/navbar.component';
 import {FooterComponent} from '../footer/footer.component';
 
 import { ProfilePage } from './profile.page';
+import { HomepagePageModule } from '../homepage/homepage.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ProfilePageRoutingModule
+    ProfilePageRoutingModule,
+    HomepagePageModule
   ],
-  declarations: [ProfilePage,NavbarComponent,FooterComponent]
+  declarations: [ProfilePage]
 })
 export class ProfilePageModule {}
