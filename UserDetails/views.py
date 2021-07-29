@@ -31,7 +31,8 @@ def cart(request):
         try:
             print(collection2.find_one({'email': email})["cart"])
         except:
-            collection2.update_one({"email": email}, {"$push": {"cart": []}})
+            collection2.update_one({"email": email}, {"$push": {"cart": data}})
+            return JsonResponse({"status": True})
         if cartCheck(data, email):
             data = collection2.update_one(
                 {'email': email}, {"$push": {"cart": data}})
