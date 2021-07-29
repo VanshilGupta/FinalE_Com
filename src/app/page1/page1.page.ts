@@ -28,8 +28,8 @@ export class Page1Page implements OnInit {
     if(e.keyCode == 13 || e.keyCode == undefined){
       if(!form.invalid){
         this.User.login(this.todo).subscribe(data=>{
-          alert("Login Successful")
           localStorage.setItem('token',data['token'])
+          alert("Login Successful")
           this.route.navigate(["/homepage"])
         },error=>{
           this.failedMsg = error['error']
