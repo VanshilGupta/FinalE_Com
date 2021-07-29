@@ -38,8 +38,8 @@
               <p class="subname mt-1">{{item.subname}}</p>
               <span class="float-right pr-3">
                 <del class="pr-2 text-secondary"
-                  >&#8377;{{((100/(100-item.offer))*item.price*qty[i]) | number :
-                  '1.0-0'}}</del
+                  >&#8377;{{((100/(100-item.offer))*item.price*qty[i]) | number
+                  : '1.0-0'}}</del
                 >
                 <span class="text-success off"> {{item.offer}}% OFF </span>
               </span>
@@ -84,7 +84,11 @@
       </div>
 
       <div class="col-md-4">
-        <div class="mt-3 border border-1 pl-2 pt-1 MyCart" id="cartD" *ngIf = "userCart.length != 0">
+        <div
+          class="mt-3 border border-1 pl-2 pt-1 MyCart"
+          id="cartD"
+          *ngIf="userCart.length != 0"
+        >
           <div class="my-2">
             <span class="pl-2 cartDetailsHeading"
               >CART DETAILS &#40;{{NumberItems}} Items&#41;
@@ -108,13 +112,18 @@
             </div>
             <div class="mt-2">
               <span class="pl-2 discount">Delievery Charges </span>
-              <span style="vertical-align: middle" id="info" class="text-secondary"
-              *ngIf = "DFee != 0"
-                ><i class="fa fa-info-circle" aria-hidden="true"
-                matTooltip = "{{tooltipStatement}}"
-                matTooltipClass="tooltip-info"
-                matTooltipPosition = "below"
-                [matTooltipHideDelay]="250"
+              <span
+                style="vertical-align: middle"
+                id="info"
+                class="text-secondary"
+                *ngIf="DFee != 0"
+                ><i
+                  class="fa fa-info-circle"
+                  aria-hidden="true"
+                  matTooltip="{{tooltipStatement}}"
+                  matTooltipClass="tooltip-info"
+                  matTooltipPosition="below"
+                  [matTooltipHideDelay]="250"
                 ></i></span
               ><span
                 class="float-right mr-2 text-success"

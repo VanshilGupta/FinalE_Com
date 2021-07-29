@@ -9,14 +9,16 @@ import {NavbarComponent} from '../navbar/navbar.component';
 import {FooterComponent} from '../footer/footer.component';
 
 import { SignupPage } from './signup.page';
+import { HomepagePageModule } from '../homepage/homepage.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SignupPageRoutingModule
+    SignupPageRoutingModule,
+    HomepagePageModule
   ],
-  declarations: [SignupPage,NavbarComponent,FooterComponent]
+  declarations: [SignupPage]
 })
 export class SignupPageModule {}

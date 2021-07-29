@@ -13,6 +13,7 @@ export class WomenPage implements OnInit {
   wValue: string;
   products = [1, 2, 3, 4, 5, 6, 7, 8];
   group  = 'women';
+  token : any;
 
   constructor(
     private service: UserService,
@@ -21,6 +22,7 @@ export class WomenPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.token = localStorage.getItem('token')
     this.ActiveRoute.queryParams.subscribe((params) => {
       this.wValue = params['category'];
       if(this.wValue == undefined) this.wValue = 'KURTAS'
@@ -31,17 +33,8 @@ export class WomenPage implements OnInit {
   }
 
   addToCart(id) {
-    console.log('generated if', id);
-    id = parseInt(id);
-    this.service.postCart(this.personName, this.wValue, id,this.group).subscribe(
-      (data) => {
-        console.log(data);
-        alert('Added');
-      },
-      (error) => {
-        alert(error['error']);
-      }
-    );
+    id = parseInt(id)
+    this.service.addToCart(id,this.wValue,this.group)
   }
   change(v) {
     this.service.getdata2(v.value).subscribe((data) => {

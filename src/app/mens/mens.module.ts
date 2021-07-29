@@ -12,6 +12,8 @@ import {FooterComponent} from '../footer/footer.component';
 
 import { DropdownComponent } from '../dropdown/dropdown.component';
 import {MatSelectModule} from '@angular/material/select';
+import { HomepagePage } from '../homepage/homepage.page';
+import { HomepagePageModule } from '../homepage/homepage.module';
 
 @NgModule({
   imports: [
@@ -20,9 +22,8 @@ import {MatSelectModule} from '@angular/material/select';
     IonicModule,
     MensPageRoutingModule,
     MatSelectModule,
-   
+    HomepagePageModule
   ],
-  declarations: [MensPage, DropdownComponent, NavbarComponent, 
-    FooterComponent]
+  declarations: [MensPage, DropdownComponent]
 })
 export class MensPageModule {}

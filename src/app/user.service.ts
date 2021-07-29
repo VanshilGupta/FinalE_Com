@@ -1,19 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
-  getUser(token) {
-    let myHeader = new HttpHeaders({
-      'content-type' : 'application/json',
-      'Authorization' : token 
-    })
-    return this.http.get('http://127.0.0.1:8000/user/details',{headers : myHeader});
+  getUser() {
+    return this.http.get('http://127.0.0.1:8000/user/details');
   }
   getdata2(category, group = 'women') {
     return this.http.get(`http://127.0.0.1:8000/${group}/data`, {
@@ -32,13 +29,10 @@ export class UserService {
       params: { name: name },
     });
   }
-  postCart(name, category, id, group = 'women') {
+  postCart( category, id, group = 'women') {
     return this.http.post(
       `http://127.0.0.1:8000/user/cart`,
-      { group: group, category: category, id: id, qty: 1 },
-      {
-        params: { name: name },
-      }
+      { group: group, category: category, id: id, qty: 1 }
     );
   }
 
@@ -68,5 +62,24 @@ export class UserService {
   }
   login(data) {
     return this.http.post('http://127.0.0.1:8000/user/login', data);
+  }
+  addToCart(id,cat,group) {
+    let token = localStorage.getItem('token')
+    if(!token){
+      alert("Please login first")
+      this.router.navigate(["/login"])
+    }
+    else{
+    id = parseInt(id);
+    this.postCart(cat, id,group).subscribe(
+      (data) => {
+        console.log(data);
+        alert('Added');
+      },
+      (error) => {
+        alert(error['error']);
+      }
+    );
+    }
   }
 }

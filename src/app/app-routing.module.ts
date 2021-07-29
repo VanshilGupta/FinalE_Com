@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { ChowkidaarGuard } from './chowkidaar.guard';
 import { ProductPage } from './product/product.page';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   
@@ -21,7 +22,8 @@ const routes: Routes = [
 
   {
     path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule),
+    canActivate : [ChowkidaarGuard]
   },
  
   {
@@ -52,6 +54,10 @@ const routes: Routes = [
   {
     path : 'watches/product',
     loadChildren: () => import('./product/product.module').then( m => m.ProductPageModule)
+  },
+  {
+    path : 'test',
+    component : TestComponent
   },
   {
     path : 'product',

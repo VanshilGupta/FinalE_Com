@@ -9,6 +9,7 @@ import { Page1PageRoutingModule } from './page1-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 
 import { Page1Page } from './page1.page';
+import { HomepagePageModule } from '../homepage/homepage.module';
 
 @NgModule({
   imports: [
@@ -16,8 +17,9 @@ import { Page1Page } from './page1.page';
     FormsModule,
     IonicModule,
     Page1PageRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    HomepagePageModule
   ],
-  declarations: [Page1Page,NavbarComponent,FooterComponent]
+  declarations: [Page1Page]
 })
 export class Page1PageModule {}

@@ -1,0 +1,154 @@
+.text-color{
+    color: cadetblue;
+}
+.full-width{
+    width: 100%;
+}
+.bg-color{
+    background-color: rgb(245, 239, 239);
+}
+.fa-facebook {
+background: #3B5998;
+color: white;
+}
+
+.fa-twitter {
+background: #55ACEE;
+color: white;
+}
+.fa-instagram {
+ background: #125688;
+color: white;
+}
+.logincard{
+    border: 1px solid black;
+    padding: 50px;
+}
+.icon-color{
+    color: black;
+}
+.payapps {
+    width: 50px;
+    height: 50px;
+}
+.image {
+border-radius: 50%;
+}
+.checked {
+color: orange;
+}
+.font-color{
+    color: rgb(172, 169, 169);
+}
+.image-hover-highlight {
+    -webkit-transition: all 0.50s;
+    transition: all 0.50s;
+    &:hover {
+        border: 1px solid grey;
+        filter: brightness(130%);
+        
+        -webkit-filter: brightness(130%);
+        -moz-filter: brightness(130%);
+        -o-filter: brightness(130%);
+        -ms-filter: brightness(130%);
+        -webkit-transition: all 0.50s;
+        transition: all 0.50s;
+    }
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+  
+  .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .card:hover {
+      -ms-transform: scale(1.1); /* IE 9 */
+      -webkit-transform: scale(1.1); /* Safari 3-8 */
+      transform: scale(1.1); 
+    }
+  .link:hover {
+        -ms-transform: scale(1.1); /* IE 9 */
+        -webkit-transform: scale(1.1); /* Safari 3-8 */
+        transform: scale(1.1); 
+      }
+      .btn{
+        background-color: #192a56;
+        border-radius: 5px;
+        color: #fff;
+        display: block;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        text-transform: capitalize;
+        width: 90%;
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+      }
+      @import url("https://fonts.googleapis.com/css?family=Ubuntu");
+
+      .cardBody {
+        display: flex;
+        min-height: 100vh;
+        font-family: "Ubuntu", sans-serif;
+      }
+      
+      h1 {
+        font-size: 1.2rem;
+        text-transform: capitalize;
+      }
+      
+      .card {
+        position: relative;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        height: 300px;
+        overflow: hidden;
+        width: 70%;
+      }
+      
+      .card > figure {
+        width: 100%;
+      }
+      
+      .card > figure > img {
+        width: 100%;
+      }
+      
+      .details {
+          background-color: #fff;
+          border-radius: 10px;
+          padding: 20px;
+          position: absolute;
+          top: 80%;
+          width: 100%;
+          transition: box-shadow 0.3s ease-in-out, top 0.3s ease-in-out;
+          height: 232px;
+      }
+      
+      
+      .card:hover .details {
+        box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.3);
+        top: 24%;
+      }
+      .image{
+        text-align: center;
+        display: block;
+      }

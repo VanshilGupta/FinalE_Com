@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.getUser(this.token).subscribe((data) => {
+    this.service.getUser().subscribe((data) => {
       this.user = data;
     });
   }
@@ -26,6 +26,6 @@ export class NavbarComponent implements OnInit {
     console.log("Logged out")
     this.token = null
     localStorage.removeItem('token')
-    this.router.navigate(["/signup"])
+    this.router.navigate(["/login"])
   }
 }

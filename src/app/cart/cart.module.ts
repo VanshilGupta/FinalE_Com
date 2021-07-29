@@ -10,6 +10,7 @@ import { CartPage } from './cart.page';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { HomepagePageModule } from '../homepage/homepage.module';
 
 @NgModule({
   imports: [
@@ -17,8 +18,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     FormsModule,
     IonicModule,
     CartPageRoutingModule,
-    MatTooltipModule
+    MatTooltipModule,
+    HomepagePageModule
   ],
-  declarations: [CartPage,NavbarComponent,FooterComponent]
+  declarations: [CartPage]
 })
 export class CartPageModule {}

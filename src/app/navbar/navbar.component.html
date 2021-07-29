@@ -1,4 +1,4 @@
-<div class="container-fluid ">
+<div class="container-fluid">
   <nav
     class="navbar navbar-expand-lg navbar-light bg-light box-shadow backimg"
     style="background-color: rgb(105, 163, 182)"
@@ -55,10 +55,24 @@
         </li>
 
         <li class="nav-item">
-          <a [routerLink] = "['/watches']" [queryParams] = "{category : 'ANALOUGE'}" class="nav-link" style="color: black" href="#">WATCHES</a>
+          <a
+            [routerLink]="['/watches']"
+            [queryParams]="{ category: 'ANALOUGE' }"
+            class="nav-link"
+            style="color: black"
+            href="#"
+            >WATCHES</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/weboffers" routherlinkActive="active" style="color: black" href="#">OFFERS</a>
+          <a
+            class="nav-link"
+            routerLink="/weboffers"
+            routherlinkActive="active"
+            style="color: black"
+            href="#"
+            >OFFERS</a
+          >
         </li>
       </ul>
       <nav class="navbar navbar-expand-sm">
@@ -135,14 +149,14 @@
                     <a
                       class="dropdown-item"
                       style="color: red"
-                      (click) = "logOut()"
+                      (click)="logOut()"
                       routerLinlActive="active"
                       >Logout</a
                     >
                   </nav>
                 </div>
                 <ng-template #elseBlock>
-                  <div class=" item1 dropdown-item">
+                  <div class="item1 dropdown-item">
                     <h4 class="helloUser mb-1">Hello User</h4>
                     <p class="pr-4 statement">
                       To access account and manage orders
