@@ -24,7 +24,7 @@ export class WatchesPage implements OnInit {
     this.ActiveRoute.queryParams.subscribe((params) => {
       this.mValue = params['category'];
       if(this.mValue == undefined){
-        this.mValue = 'TSHIRTS'
+        this.mValue = 'ANALOUGE'
       }
       this.service.getdata2(this.mValue,this.group).subscribe((data) => {
         this.products = data['data'];
@@ -33,17 +33,8 @@ export class WatchesPage implements OnInit {
   }
 
   addToCart(id) {
-    console.log('generated if', id);
     id = parseInt(id);
-    this.service.postCart(this.personName, this.mValue, id,this.group).subscribe(
-      (data) => {
-        console.log(data);
-        alert('Added');
-      },
-      (error) => {
-        alert(error['error']);
-      }
-    );
+    this.service.addToCart(id,this.mValue,this.group)
   }
   change(v) {
     this.service.getdata2(v.value,this.group).subscribe((data) => {

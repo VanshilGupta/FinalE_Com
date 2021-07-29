@@ -21,13 +21,16 @@ export class CartPage implements OnInit {
   TotalMRP: number = 0;
   totalPrice: number = 0;
   qty = [];
-  name = 'Vanshil';
+  name : string;
   userCart = [];
   catAindex: any;
   NumberItems: number;
 
   constructor(private service: UserService, private route: Router) {}
   ngOnInit() {
+    this.service.getUser().subscribe(data=>{
+      this.name = data['name']
+    })
     this.service.getUserCart(this.name).subscribe((data) => {
       this.catAindex = data['data'];
       this.NumberItems = this.catAindex.length;
@@ -46,7 +49,6 @@ export class CartPage implements OnInit {
           document.getElementById('cartD').style.display = 'none';
         }
       });
-      console.log('Quantity os ', this.qty);
     });
 
     // this.catAindex.forEach((element) => {
@@ -88,10 +90,11 @@ export class CartPage implements OnInit {
   }
 
   navigate(index, name) {
+    let group = this.catAindex[index]['group']
     console.log(index, name);
-    this.route.navigate(['/women/product'], {
+    this.route.navigate([`/${group}/product`], {
       queryParams: {
-        group : this.catAindex[index]['group'],
+        group : group,
         category: this.catAindex[index]['category'],
         name: name,
         id: this.catAindex[index]['id'],

@@ -16,7 +16,7 @@ export class ChowkidaarGuard implements CanActivate {
         return true
       }
       else {
-        this.route.navigate(["/signup"])
+        this.route.navigate(["/login"])
         return false
       }
     }

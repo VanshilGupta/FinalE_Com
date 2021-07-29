@@ -19,6 +19,6 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     CartPageRoutingModule,
     MatTooltipModule
   ],
-  declarations: [CartPage,NavbarComponent,FooterComponent]
+  declarations: [CartPage]
 })
 export class CartPageModule {}

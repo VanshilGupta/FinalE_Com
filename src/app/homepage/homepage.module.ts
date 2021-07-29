@@ -18,6 +18,6 @@ import { HomepagePage } from './homepage.page';
     IonicModule,
     HomepagePageRoutingModule
   ],
-  declarations: [HomepagePage,NavbarComponent,FooterComponent]
+  declarations: [HomepagePage]
 })
 export class HomepagePageModule {}

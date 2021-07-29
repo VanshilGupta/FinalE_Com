@@ -15,6 +15,6 @@ import {FooterComponent} from '../footer/footer.component';
     IonicModule,
     LoginPageRoutingModule
   ],
-  declarations: [LoginPage,NavbarComponent,FooterComponent]
+  declarations: [LoginPage]
 })
 export class LoginPageModule {}

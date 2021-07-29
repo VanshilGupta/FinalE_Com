@@ -7,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
+  g = "hello"
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(`Hi and ${this.g}`)
+  }
 
 }

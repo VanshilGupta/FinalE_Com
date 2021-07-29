@@ -10,7 +10,7 @@ export class LoginPage implements OnInit {
 
   profile:any;
   constructor(private userServ:UserService) { 
-    this.profile = userServ.getdata()[0];
+    
   }
 
   ngOnInit() {

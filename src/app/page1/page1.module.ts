@@ -18,6 +18,6 @@ import { Page1Page } from './page1.page';
     Page1PageRoutingModule,
     HttpClientModule
   ],
-  declarations: [Page1Page,NavbarComponent,FooterComponent]
+  declarations: [Page1Page]
 })
 export class Page1PageModule {}
