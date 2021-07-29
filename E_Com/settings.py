@@ -130,7 +130,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 client = MongoClient('mongodb://localhost:27017/')
-db = client["E-ComWebsite"]
+db = client["ecomwebsite"]
 WOMEN_PRODUCTS = db["WomenProducts"]
 USER_DETAILS = db['Users']
 DB = "./db.json"

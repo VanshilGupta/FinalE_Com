@@ -8,6 +8,7 @@ from rest_framework.decorators import api_view
 import hashlib
 import jwt
 import datetime
+
 # Create your views here.
 
 db = settings.DB
@@ -106,6 +107,7 @@ def removeItem(request):
 @csrf_exempt
 @api_view(['POST'])
 def login(request):
+    print("run")
     req_user = json.loads(request.body)
     userid = collection2.find_one({'email': req_user['email']})
     print(req_user['password'])
@@ -119,8 +121,9 @@ def login(request):
          'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=24 * 60 * 60)
          },
         settings.SECRET_KEY,
-        algorithm="HS256")
-
+        algorithm="HS256").decode("utf-8")
+    print(token,"****************")
+    # token=str(token)
     return JsonResponse({'status': True, 'token': token})
 
 
@@ -140,6 +143,6 @@ def register(request):
         return HttpResponse("Signup Successful!", status=200)
 
 
-@utils.requireLogin
+# @utils.requireLogin
 def verify(request):
     return JsonResponse({"status": True})
