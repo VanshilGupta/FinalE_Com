@@ -29,8 +29,8 @@ export class Page1Page implements OnInit {
       if(!form.invalid){
         console.log(this.todo);
         this.User.login(this.todo).subscribe(data=>{
-          alert("Login Successful")
           localStorage.setItem('token',data['token'])
+          alert("Login Successful")
           this.route.navigate(["/homepage"])
           
         },error=>{

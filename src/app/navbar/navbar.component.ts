@@ -10,7 +10,7 @@ import { UserService } from '../user.service';
 export class NavbarComponent implements OnInit {
   token: any;
   user: any = [];
-  userstatus;
+
 
   constructor(private service: UserService, private router: Router) {
     this.token = localStorage.getItem('token');
