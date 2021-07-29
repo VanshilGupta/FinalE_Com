@@ -27,10 +27,12 @@ export class Page1Page implements OnInit {
   
     if(e.keyCode == 13 || e.keyCode == undefined){
       if(!form.invalid){
+        console.log(this.todo);
         this.User.login(this.todo).subscribe(data=>{
           alert("Login Successful")
           localStorage.setItem('token',data['token'])
           this.route.navigate(["/homepage"])
+          
         },error=>{
           this.failedMsg = error['error']
         })
