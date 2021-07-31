@@ -6,7 +6,7 @@
     height: 400px;
 }
 hr.solid {
-    border-top: 2px solid rgb(236, 232, 232);
+    border-top: 2px solid rgb(8, 0, 0);
   }
 .vl{
   border-left: 3px solid rgb(218, 31, 31);
@@ -20,15 +20,4 @@ hr.solid {
     font-family: "Brush Script MT", cursive;
     font-size: 60px;
 }
-.btn{
-  background-color: #192a56;
-  border-radius: 5px;
-  color: #fff;
-  display: block;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  text-transform: capitalize;
-  width: 100%;
-  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
+

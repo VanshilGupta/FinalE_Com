@@ -1,6 +1,8 @@
 import { Conditional } from '@angular/compiler';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { BuyComponent } from '../buy/buy.component';
 import { UserService } from '../user.service';
 
 @Component({
@@ -26,7 +28,7 @@ export class CartPage implements OnInit {
   catAindex: any;
   NumberItems: number;
 
-  constructor(private service: UserService, private route: Router) {}
+  constructor(private service: UserService, private route: Router, private dialog : MatDialog) {}
   ngOnInit() {
     this.service.getUser().subscribe(data=>{
       this.name = data['name']
@@ -184,5 +186,8 @@ export class CartPage implements OnInit {
     this.userCart.splice(index, 1);
     this.catAindex.splice(index, 1);
     this.updateAll();
+  }
+  buy(){
+    this.dialog.open(BuyComponent)
   }
 }

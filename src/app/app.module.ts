@@ -15,6 +15,7 @@ import { ChowkidaarGuard } from './chowkidaar.guard';
 import { TokenInterceptor } from './token.interceptor';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { BuyComponent } from './buy/buy.component';
 
 @NgModule({
   declarations: [AppComponent],

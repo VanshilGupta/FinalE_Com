@@ -40,36 +40,40 @@ a:active {
   margin-top: 3px;
   cursor: pointer;
 }
-.login{
+.login {
   font-weight: 500;
   color: #0855fa;
 }
-.login:hover{
+.login:hover {
   text-decoration: none;
 }
 
-.login:active{
+.login:active {
   color: white;
 }
 
-.signup:hover{
+.signup:hover {
   text-decoration: underline;
 }
 
-.signin:hover{
+.signin:hover {
   text-decoration: underline;
 }
 
-.statement{
+.statement {
   font-weight: 200;
 }
 
-.helloUser{
+.helloUser {
   font-weight: 500;
 }
 
-
-.logo{
+.logo {
   font-family: "Brush Script MT", cursive;
   font-size: 60px;
+}
+.cart-icon {
+  font-size: 19px;
+  padding-top: 4px;
+  padding-left: 9px;
 }
