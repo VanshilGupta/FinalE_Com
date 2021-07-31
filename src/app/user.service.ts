@@ -80,6 +80,8 @@ export class UserService {
         alert(error['error']);
       }
     );
+
     }
+    
   }
 }

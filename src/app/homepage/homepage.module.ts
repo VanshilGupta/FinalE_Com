@@ -19,6 +19,7 @@ import { HomepagePage } from './homepage.page';
     HomepagePageRoutingModule
   ],
   declarations: [HomepagePage,NavbarComponent,FooterComponent],
+  entryComponents :[NavbarComponent],
   exports : [NavbarComponent,FooterComponent]
 })
 export class HomepagePageModule {}
