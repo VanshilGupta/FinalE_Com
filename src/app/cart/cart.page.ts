@@ -1,3 +1,4 @@
+import { AUTO_STYLE } from '@angular/animations';
 import { Conditional } from '@angular/compiler';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -35,8 +36,6 @@ export class CartPage implements OnInit {
     })
     this.service.getUserCart(this.name).subscribe((data) => {
       this.catAindex = data['data'];
-      this.NumberItems = this.catAindex.length;
-      console.log(this.catAindex);
       if (this.x == 0) {
         this.catAindex.forEach((element) => {
           this.qty.push(element['qty']);
@@ -188,6 +187,22 @@ export class CartPage implements OnInit {
     this.updateAll();
   }
   buy(){
-    this.dialog.open(BuyComponent)
+    let dialogRef = this.dialog.open(BuyComponent, {
+      disableClose : true,
+      autoFocus : true,
+      panelClass : ['my-dialog','full-screen-modal'],
+      data : {
+        'items' : this.userCart,
+        'qty' : this.qty,
+        'mrp' : this.TotalMRP,
+        'total' : this.totalPrice,
+        'dFee' : this.DFee,
+        'totalItems' : this.NumberItems
+      }
+    }
+    )
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog Result : ${result}`)
+    })
   }
 }

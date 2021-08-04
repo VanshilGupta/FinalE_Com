@@ -1,0 +1,23 @@
+
+.cdk-overlay-pane.my-dialog {
+    position: relative!important; 
+  }
+
+.summary{
+  height: 550px;
+  overflow-y: scroll;
+}
+.close-icon{
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: red;
+  }
+
+  .full-screen-modal {
+    .mat-dialog-content {
+      max-height: 100%
+    }
+  }
+
+  li { margin-top : -1px !important }

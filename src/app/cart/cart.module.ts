@@ -7,7 +7,7 @@ import { CartPage } from './cart.page';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatDialogModule} from '@angular/material/dialog'
+import {MatDialog, MatDialogClose, MatDialogModule} from '@angular/material/dialog'
 import { HomepagePageModule } from '../homepage/homepage.module';
 import { BuyComponent } from '../buy/buy.component';
 
@@ -19,8 +19,8 @@ import { BuyComponent } from '../buy/buy.component';
     CartPageRoutingModule,
     MatTooltipModule,
     HomepagePageModule,
-    MatDialogModule
   ],
   declarations: [CartPage],
+
 })
 export class CartPageModule {}

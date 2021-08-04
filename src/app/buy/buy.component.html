@@ -1,264 +1,255 @@
 <!--Main layout-->
-<h1 mat-dialog-title class="text-center">Checkout</h1>
-<div class="container wow fadeIn">
-  <!-- Heading -->
+<mat-icon-button
+  mat-dialog-close="true"
+  color="warn"
+  aria-label="Close button"
+  class="close-icon"
+>
+  <mat-icon>cancel</mat-icon></mat-icon-button
+>
+<div>
+  <h1 mat-dialog-title class="text-center d-inline">Checkout</h1>
+</div>
+<mat-dialog-content>
+  <div class="container wow fadeIn">
+    <!-- Heading -->
 
-  <!--Grid row-->
-  <div class="row">
-    <!--Grid column-->
-    <div class="col-md-8 mb-2">
-      <!--Card-->
-      <div class="card">
-        <!--Card content-->
-        <form class="card-body">
-          <!--Grid row-->
-          <div class="row">
-            <!--Grid column-->
-            <div class="col-md-6 mb-1">
-              <!--firstName-->
-              <div class="md-form">
-                <input type="text" id="firstName" class="form-control" />
-                <label for="firstName" class="">First name</label>
-              </div>
-            </div>
-            <!--Grid column-->
+    <!--Grid row-->
+    <div class="row">
+      <!--Grid column-->
+      <div class="col-md-8 mb-2">
+        <!--Card-->
+        <div class="card">
+          <!--Card content-->
+          <form ngNativeValidate #detailsForm = "ngForm" (ngSubmit) = "test(detailsForm.value)" class="card-body">
+            <!--Grid row-->
 
-            <!--Grid column-->
-            <div class="col-md-6 mb-1">
-              <!--lastName-->
-              <div class="md-form">
-                <input type="text" id="lastName" class="form-control" />
-                <label for="lastName" class="">Last name</label>
-              </div>
-            </div>
-            <!--Grid column-->
-          </div>
-          <!--Grid row-->
+            <!--Grid row-->
 
-          <!--Username-->
+            <!--Username-->
 
-          <!--email-->
+            <!--email-->
 
-          <!--address-->
-          <div class="md-form mb-3">
-            <input
-              type="text"
-              id="address"
-              class="form-control"
-              placeholder="1234 Main St"
-            />
-            <label for="address" class="">Address</label>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-4 col-md-6 mb-2">
-              <label for="state">State</label>
-              <select class="custom-select d-block w-100" id="state" required>
-                <option value="">Choose...</option>
-                <option>California</option>
-              </select>
-              <div class="invalid-feedback">Please provide a valid state.</div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-2">
-              <label for="zip">Zip</label>
+            <!--address-->
+            <div class="mb-3">
+              <label for="address" class="">Address</label>
               <input
+              name="address"
                 type="text"
+                id="address"
                 class="form-control"
-                id="zip"
-                placeholder=""
+                placeholder="1234 Main St"
+                ngModel
                 required
               />
-              <div class="invalid-feedback">Zip code required.</div>
             </div>
-          </div>
 
-          <hr />
+            <div class="row">
+              <div class="col-lg-4 col-md-6 mb-2">
+                <label for="state">State</label>
+                <select name="state" class="custom-select d-block w-100" id="state"
+                ngModel required>
+                  <option value="">Choose...</option>
+                  <option *ngFor="let item of states">{{ item }}</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid state.
+                </div>
+              </div>
 
-          <div class="custom-control custom-checkbox">
-            <input
-              type="checkbox"
-              class="custom-control-input"
-              id="same-address"
-            />
-            <label class="custom-control-label" for="same-address"
-              >Shipping address is the same as my billing address</label
-            >
-          </div>
-          <div class="custom-control custom-checkbox">
-            <input
-              type="checkbox"
-              class="custom-control-input"
-              id="save-info"
-            />
-            <label class="custom-control-label" for="save-info"
-              >Save this information for next time</label
-            >
-          </div>
+              <div class="col-lg-4 col-md-6 mb-2">
+                <label for="zip">Zip</label>
+                <input
+                name="postal-code"
+                  type="text"
+                  class="form-control"
+                  id="zip"
+                  placeholder=""
+                  ngModel
+                  required
+                />
+                <div class="invalid-feedback">Zip code required.</div>
+              </div>
+            </div>
 
-          <hr />
+            <hr />
 
-          <div class="d-block my-2">
-            <div class="custom-control custom-radio">
+            <div class="custom-control custom-checkbox">
               <input
-                id="credit"
-                name="paymentMethod"
-                type="radio"
+              name="sameAdd"
+                type="checkbox"
                 class="custom-control-input"
-                checked
-                required
+                id="same-address"
+                ngModel
               />
-              <label class="custom-control-label" for="credit"
-                >Credit card</label
+              <label class="custom-control-label" for="same-address"
+                >Shipping address is the same as my billing address</label
               >
             </div>
-            <div class="custom-control custom-radio">
+            <div class="custom-control custom-checkbox">
+              
               <input
-                id="debit"
-                name="paymentMethod"
-                type="radio"
+                name="saveInfo"
+                type="checkbox"
                 class="custom-control-input"
-                required
+                id="save-info"
+                ngModel
               />
-              <label class="custom-control-label" for="debit">Debit card</label>
+              <label class="custom-control-label" for="save-info"
+                >Save this information for next time</label
+              >
             </div>
-            <div class="custom-control custom-radio">
-              <input
-                id="paypal"
-                name="paymentMethod"
-                type="radio"
-                class="custom-control-input"
-                required
-              />
-              <label class="custom-control-label" for="paypal">Paypal</label>
+
+            <hr />
+
+            <div class="d-block my-2">
+              <mat-radio-group required class="d-flex flex-column" name = "card-type" ngModel>
+                <mat-radio-button value = "cc">Credit Card</mat-radio-button>
+                <!-- <label class="custom-control-label" for="credit"
+                  >Credit card</label
+                > -->
+                <mat-radio-button
+                  value="dc"
+                >Debit Card</mat-radio-button>
+                <!-- <label class="custom-control-label" for="debit"
+                  >Debit card</label> -->
+            </mat-radio-group>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-2">
+                <label for="cc-name">Name on card</label>
+                <input
+                name="card-name"
+                  type="text"
+                  class="form-control"
+                  id="cc-name"
+                  placeholder=""
+                  ngModel
+                  required
+                />
+                <small class="text-muted">Full name as displayed on card</small>
+                <div class="invalid-feedback">Name on card is required</div>
+              </div>
+              <div class="col-md-6 mb-2">
+                <label for="cc-number">Credit card number</label>
+                <input
+                name="card-number"
+                  type="text"
+                  class="form-control"
+                  id="cc-number"
+                  placeholder=""
+                  ngModel
+                  required
+                />
+                <div class="invalid-feedback">
+                  Credit card number is required
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 mb-2">
+                <label for="cc-expiration">Expiration</label>
+                <input
+                name="card-expiry"
+                  type="text"
+                  class="form-control"
+                  id="cc-expiration"
+                  placeholder=""
+                  ngModel
+                  required
+                />
+                <div class="invalid-feedback">Expiration date required</div>
+              </div>
+              <div class="col-md-3 mb-2">
+                <label for="cc-expiration">CVV</label>
+                <input
+                name="card-cvv"
+                  type="text"
+                  class="form-control"
+                  id="cc-cvv"
+                  placeholder=""
+                  ngModel
+                  required
+                />
+                <div class="invalid-feedback">Security code required</div>
+              </div>
+            </div>
+            <hr class="mt-1" />
+            <button class="btn btn-info btn-lg btn-block" type="submit">
+              Place Order
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-2 summary">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">Your cart</span>
+          <span class="badge badge-secondary badge-pill">{{
+            data.totalItems
+          }}</span>
+        </h4>
+
+        <ul class="list-group mb-2 z-depth-1">
+          <li
+            class="list-group-item d-flex justify-content-between lh-condensed"
+            *ngFor="let item of userCart; let i = index"
+          >
+            <div>
+              <h5 class="my-0">
+                <span>{{ item.name }}</span
+                > - {{ qty[i]}}
+              </h5>
+              <small class="text-muted">{{ item.subname }}</small>
+            </div>
+            <span class="text-muted">&#8377;{{ item.price * qty[i] }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between bg-light text-danger">
+            <div>
+              <h4 class="my-0">MRP</h4>
+            </div>
+            <span>&#8377;{{ data.mrp| number :
+              '1.0-0' }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h4 class="my-0">Discount</h4>
+            </div>
+            <span class="text-success">-&#8377;{{ data.mrp - data.total | number :
+              '1.0-0' }}</span>
+          </li>
+          <li [ngClass] = "{'text-success' : data.dFee == 0, 'text-danger' : data.dFee!=0}" class="list-group-item d-flex justify-content-between bg-light">
+              <div>
+                <h4 class="my-0">Delievery Fee</h4>
+              </div>
+              <span>{{DFeeStatement}}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <h4>TOTAL (&#8377;)</h4>
+            <strong>&#8377;{{data.total + data.dFee}}</strong>
+          </li>
+        </ul>
+
+        <form class="card p-2">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Promo code"
+              aria-label="Recipient's username"
+              aria-describedby="basic-addon2"
+            />
+            <div class="input-group-append">
+              <button
+                class="btn btn-secondary btn-md waves-effect m-0"
+                type="button"
+              >
+                Redeem
+              </button>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6 mb-2">
-              <label for="cc-name">Name on card</label>
-              <input
-                type="text"
-                class="form-control"
-                id="cc-name"
-                placeholder=""
-                required
-              />
-              <small class="text-muted">Full name as displayed on card</small>
-              <div class="invalid-feedback">Name on card is required</div>
-            </div>
-            <div class="col-md-6 mb-2">
-              <label for="cc-number">Credit card number</label>
-              <input
-                type="text"
-                class="form-control"
-                id="cc-number"
-                placeholder=""
-                required
-              />
-              <div class="invalid-feedback">Credit card number is required</div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3 mb-2">
-              <label for="cc-expiration">Expiration</label>
-              <input
-                type="text"
-                class="form-control"
-                id="cc-expiration"
-                placeholder=""
-                required
-              />
-              <div class="invalid-feedback">Expiration date required</div>
-            </div>
-            <div class="col-md-3 mb-2">
-              <label for="cc-expiration">CVV</label>
-              <input
-                type="text"
-                class="form-control"
-                id="cc-cvv"
-                placeholder=""
-                required
-              />
-              <div class="invalid-feedback">Security code required</div>
-            </div>
-          </div>
-          <hr class="mt-1" />
-          <button class="btn btn-info btn-lg btn-block" type="submit">
-            Place Order
-          </button>
         </form>
       </div>
     </div>
-
-    <div class="col-md-4 mb-2">
-      <h4 class="d-flex justify-content-between align-items-center mb-3">
-        <span class="text-muted">Your cart</span>
-        <span class="badge badge-secondary badge-pill">3</span>
-      </h4>
-
-      <ul class="list-group mb-2 z-depth-1">
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Product name</h6>
-            <small class="text-muted">Brief description</small>
-          </div>
-          <span class="text-muted">$12</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Second product</h6>
-            <small class="text-muted">Brief description</small>
-          </div>
-          <span class="text-muted">$8</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Third item</h6>
-            <small class="text-muted">Brief description</small>
-          </div>
-          <span class="text-muted">$5</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between bg-light">
-          <div class="text-success">
-            <h6 class="my-0">Promo code</h6>
-            <small>EXAMPLECODE</small>
-          </div>
-          <span class="text-success">-$5</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between">
-          <span>Total (USD)</span>
-          <strong>$20</strong>
-        </li>
-      </ul>
-
-      <form class="card p-2">
-        <div class="input-group">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Promo code"
-            aria-label="Recipient's username"
-            aria-describedby="basic-addon2"
-          />
-          <div class="input-group-append">
-            <button
-              class="btn btn-secondary btn-md waves-effect m-0"
-              type="button"
-            >
-              Redeem
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
   </div>
-</div>
-
-<!-- <footer class="page-footer text-center font-small mt-4 wow fadeIn">
-  <div class="footer-copyright py-2">
-    © 2018 Copyright:
-    <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank">
-      MDBootstrap.com
-    </a>
-  </div>
-</footer> -->
+</mat-dialog-content>

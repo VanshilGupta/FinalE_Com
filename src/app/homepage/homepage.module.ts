@@ -12,17 +12,26 @@ import { HomepagePageRoutingModule } from './homepage-routing.module';
 import { HomepagePage } from './homepage.page';
 import { BuyComponent } from '../buy/buy.component';
 import { BoundDirectivePropertyAst } from '@angular/compiler';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomepagePageRoutingModule
+    HomepagePageRoutingModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule,
+    MatRadioModule
   ],
   declarations: [HomepagePage,NavbarComponent,FooterComponent,BuyComponent],
   entryComponents : [NavbarComponent,FooterComponent,BuyComponent],
-  exports : [NavbarComponent,FooterComponent, BuyComponent]
+  exports : [NavbarComponent,FooterComponent,BuyComponent]
 
 })
 export class HomepagePageModule {}
