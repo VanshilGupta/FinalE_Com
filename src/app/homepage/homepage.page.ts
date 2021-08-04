@@ -14,6 +14,10 @@ export class HomepagePage implements OnInit {
   topStories2: any;
   topStories3: any;
   topStories4: any;
+  topStories5: any;
+  topStories6: any;
+  topStories7: any;
+  topStories8: any;
   
 
   slideOpts = {
@@ -81,13 +85,56 @@ export class HomepagePage implements OnInit {
       clickable: true
     }
   };
-  slideOptsreverse = {
-    initialSlide: 4,
-    speed: 400,
+  slideOpts5 = {
+    
+    speed: 300,
     loop: true,
     autoplay: {
-          delay: 4000,
-          reverseDirection: true
+      delay: 3800,
+      
+    },
+    pagination : {
+      el: '.swiper-pagination',
+      clickable: true
+    }
+  };
+  slideOpts6 = {
+    
+    speed: 360,
+    loop: true,
+    autoplay: {
+      delay: 4200,
+      
+    },
+    pagination : {
+      el: '.swiper-pagination',
+      clickable: true
+    }
+  };
+  slideOpts7 = {
+    
+    speed: 250,
+    loop: true,
+    autoplay: {
+      delay: 3600,
+      
+    },
+    pagination : {
+      el: '.swiper-pagination',
+      clickable: true
+    }
+  };
+  slideOpts8 = {
+    
+    speed: 450,
+    loop: true,
+    autoplay: {
+      delay: 3400,
+      
+    },
+    pagination : {
+      el: '.swiper-pagination',
+      clickable: true
     }
   };
 
@@ -128,6 +175,34 @@ export class HomepagePage implements OnInit {
       {picture: "https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/8363b55c-446f-4de2-bc5b-e75fd6fdfb2d1597840217862-Content-accessories-brand-fastrack.png","link":"/watches"},
       {picture: "https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/11/9/efc4b19d-179f-4437-961c-839df50299a51604906586690-36-Essentials-Night_innerwear.jpg","link":"/men"},
       { picture: "https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/5e68d729-b955-431c-930c-931d8b452d421597840217983-Content-accessories-color-white.png","link":"/watches"}
+    ]
+    this.topStories5 = [
+      {picture: "https://sslimages.shoppersstop.com/sys-master/root/h41/h9f/17101690535966/FLYING%20MACHINE-----WEB-20210721.jpg","link":"/men"},
+      {picture: "https://sslimages.shoppersstop.com/sys-master/root/hcf/hac/17101690929182/KILLER-----WEB-20210721.jpg","link":"/men"},
+      {picture: "https://sslimages.shoppersstop.com/sys-master/root/h71/h98/17101690339358/DUKE-----WEB-20210721.jpg","link":"/men"},
+      { picture: "https://sslimages.shoppersstop.com/sys-master/root/hc0/ha6/17101690798110/NUMEROUNO-----WEB-20210721.jpg","link":"/men"}
+      
+    ]
+    this.topStories6 = [
+      {picture: "https://sslimages.shoppersstop.com/sys-master/root/ha0/h7b/16870855016478/MK--WEB---top-brands-20210609.jpg","link":"/women"},
+      {picture: "https://sslimages.shoppersstop.com/sys-master/root/h44/hf7/16870856589342/Forever-New-----web.jpg","link":"/women"},
+      {picture: "https://sslimages.shoppersstop.com/sys-master/root/h0e/h59/16821349220382/Casio-WEB---top-brands-2.jpg","link":"/watches"},
+      { picture: "https://sslimages.shoppersstop.com/sys-master/root/h29/h4b/17101678477342/COLOR-PLUS-----416-by-312-WEB.jpg","link":"/men"}
+      
+    ]
+    this.topStories7 = [
+      {picture: "https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/25/085719b1-c71e-4f47-950c-9a6b7f291fac1598348260370-Jack-_-Jones.jpg","link":"/men"},
+      {picture: "https://sslimages.shoppersstop.com/sys-master/root/h28/h6a/17150852464670/LEVIS-----WEB.jpg","link":"/men"},
+      {picture: "https://sslimages.shoppersstop.com/sys-master/root/h3c/h77/17152454787102/Sport----WEB-20210208.jpg","link":"/watches"},
+      { picture: "https://sslimages.shoppersstop.com/sys-master/root/h4c/h7a/17152454852638/T-Touch-WEB-20210208.jpg","link":"/watches"}
+      
+    ]
+    this.topStories8 = [
+      {picture: "https://sslimages.shoppersstop.com/sys-master/root/h87/hf0/16870856392734/Fab-alley-----web.jpg","link":"/women"},
+      {picture: "https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/7/28/83d9ca97-4aa3-46ce-bd28-b135d3b94a021595935030673-Content-ethnicwear-essentials-everydaykurtas.jpg","link":"/men"},
+      {picture: "https://sslimages.shoppersstop.com/sys-master/root/h7a/he0/17126057082910/Mimosa--web.jpg","link":"/women"},
+      { picture: "https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/4aa58fe6-8c61-4e37-9fa8-436c31aecb211597840566511-Content-sportswear-essentials-activewear.png","link":"/men"}
+      
     ]
   }
 

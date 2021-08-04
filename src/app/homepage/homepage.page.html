@@ -77,13 +77,13 @@
         <div class="col-md-2 mx-5"><strong>product name<br>$0.00</strong></div>
         <div class="col-md-2 mx-5"><strong>product name</strong><br><s>$0.00</s><strong> $0.00</strong></div>
     </div> -->
-    <div class="row pt-4">
+    <!-- <div class="row pt-4">
       <div class="col-md-4"></div>
       <div class="col-md-4">
         <button class="btn btn-primary" style="align-items: center;margin-left: 8%;">VIEW ALL PRODUCTS</button>
       </div>
       <div class="col-md-4"></div>
-    </div>
+    </div> -->
   
     <div class="row  mt-5 text-center " style=" margin: 20px">
       
@@ -126,9 +126,58 @@
           
           </ion-slide>
         </ion-slides>
+      </div></div>
+      <div class="row  mt-5 text-center " style=" margin: 20px">
+        <div class="col-md-3">
+          <ion-slides class="slide-padding" pager="true" [options]="slideOpts5">
+            <ion-slide *ngFor="let story of topStories5">
+            
+                <ion-img src="{{story.picture}}" routerLink="{{story.link}}" style="height: 400px; width: 100%;"></ion-img>
+                
+            
+            </ion-slide>
+          </ion-slides>
+        </div>
+        <div class="col-md-3">
+          <ion-slides class="slide-padding" pager="true" [options]="slideOpts6">
+            <ion-slide *ngFor="let story of topStories6">
+            
+                <ion-img src="{{story.picture}}" routerLink="{{story.link}}" style="height: 400px;width: 100%;"></ion-img>
+                
+            
+            </ion-slide>
+          </ion-slides>
+        </div>
+        <div class="col-md-3">
+          <ion-slides class="slide-padding" pager="true" [options]="slideOpts7">
+            <ion-slide *ngFor="let story of topStories7">
+            
+                <ion-img src="{{story.picture}}" routerLink="{{story.link}}" style="height: 400px;width: 100%;"></ion-img>
+                
+            
+            </ion-slide>
+          </ion-slides>
+        </div>
+        <div class="col-md-3">
+          <ion-slides class="slide-padding" pager="true" [options]="slideOpts8">
+            <ion-slide *ngFor="let story of topStories8">
+            
+                <ion-img src="{{story.picture}}" routerLink="{{story.link}}" style="height: 400px;width: 100%;"></ion-img>
+                
+            
+            </ion-slide>
+          </ion-slides>
+        </div>
       </div>
       
       
+    
+    <div class="row pt-4">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <button class="btn btn-primary" style="align-items: center;margin-left: 8%;">VIEW ALL PRODUCTS</button>
+      </div>
+      <div class="col-md-4"></div>
     </div>
     <!-- <div class="row">
       <div class="col-md-3"></div>
