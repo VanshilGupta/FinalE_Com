@@ -86,6 +86,6 @@ export class UserService {
     
   }
   getStates(){
-    return this.http.get('http://127.0.0.1:8000/states')
+    return this.http.get(environment.SERVER_URL +'/states')
   }
 }

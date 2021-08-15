@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-profile',
@@ -11,6 +12,7 @@ import { UserService } from '../user.service';
 export class ProfilePage implements OnInit {
   user: any = [];
   data={};
+  status1;
 
   constructor(private http:HttpClient, private service: UserService, private router: Router) { }
 
@@ -22,10 +24,16 @@ export class ProfilePage implements OnInit {
      
     });
   }
-  // update(){
-  //   this.http.post('http://127.0.0.1:8000/user/details',this.data).subscribe((data)=>{
-  //   alert(data["message"]);
-  //   });
-  // }
+   update(){
+     this.http.post(environment.SERVER_URL +'/user/update',this.data).subscribe((res:any)=>{
+      this.status1 = res.status ;
+     if (this.status1 == "True"){
+      alert("Details Changed Successfully");
+    }
+    else{
+      alert("Error from the server");
+    }
+     });
+   }
 
 }

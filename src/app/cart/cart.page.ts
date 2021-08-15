@@ -28,14 +28,17 @@ export class CartPage implements OnInit {
   userCart = [];
   catAindex: any;
   NumberItems: number;
+  finaloffer;
 
-  constructor(private service: UserService, private route: Router, private dialog : MatDialog) {}
+  constructor(private service: UserService, private route: Router, private dialog : MatDialog) {
+    this.finaloffer=localStorage.getItem("offer")
+  }
   ngOnInit() {
     this.service.getUser().subscribe(data=>{
       this.name = data['name']
     })
     this.service.getUserCart(this.name).subscribe((data) => {
-      this.catAindex = data['data'];
+      this.catAindex= data['data'];
       if (this.x == 0) {
         this.catAindex.forEach((element) => {
           this.qty.push(element['qty']);

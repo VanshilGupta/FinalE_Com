@@ -75,6 +75,7 @@ export class WeboffersPage implements OnInit {
     }
   };
   constructor(private http:HttpClient) {
+  
     this.topStories1 = [
       {picture: "https://images.bewakoof.com/uploads/grid/app/b1g1-hero-banner-men-1626697275.jpg"},
       {picture: "https://images.bewakoof.com/uploads/grid/app/bazaar-hero-banner-men-1626189046.jpg"},
@@ -144,6 +145,7 @@ export class WeboffersPage implements OnInit {
     var valueList = ["5","10","8","1","40","3","15","13","24","9","21","17"];
     this.message="Hurray!! you got discount of";
     this.value = valueList[this.getValue]
+    localStorage.setItem("offer",this.value)
     alert(this.message+" "+this.value+"/-")
   }
 }

@@ -132,11 +132,33 @@
                 >{{DFeeStatement}}</span
               >
             </div>
+            <div class="mt-2">
+              <span class="pl-2 discount">Wheel offer</span>
+              <span
+                style="vertical-align: middle"
+                id="info"
+                class="text-secondary"
+                *ngIf="DFee != 0"
+                ><i
+                  class="fa fa-info-circle"
+                  aria-hidden="true"
+                  matTooltip="{{tooltipStatement}}"
+                  matTooltipClass="tooltip-info"
+                  matTooltipPosition="below"
+                  [matTooltipHideDelay]="250"
+                ></i></span
+              ><span
+                class="float-right mr-2 text-success"
+                id="dfee"
+                [ngClass]="class1"
+                >-{{finaloffer}}</span
+              >
+            </div>
           </div>
           <hr />
           <div class="my-2 TotalAmount">
             <span class="pl-2">Total Amount</span
-            ><span class="float-right mr-2">&#8377;{{totalPrice + DFee}}</span>
+            ><span class="float-right mr-2">&#8377;{{totalPrice + DFee - finaloffer}}</span>
           </div>
           <div class="p-2">
             <button mat-raised-button (click) = "buy()" class="btn btn-warning w-100">PROCEED TO BUY</button>

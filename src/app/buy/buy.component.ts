@@ -17,7 +17,9 @@ export class BuyComponent implements OnInit {
   data : any
   states: any
   DFeeStatement : string
+  finaloffer;
   constructor(private http:HttpClient, private user : UserService, @Inject(MAT_DIALOG_DATA) data) { 
+    this.finaloffer=localStorage.getItem("offer")
     this.data = data;
     this.userCart = data['items']
     this.qty = data['qty']
