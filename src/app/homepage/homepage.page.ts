@@ -191,7 +191,7 @@ export class HomepagePage implements OnInit {
       
     ]
     this.topStories7 = [
-      {picture: "https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/25/085719b1-c71e-4f47-950c-9a6b7f291fac1598348260370-Jack-_-Jones.jpg","link":"/men"},
+      {picture: "https://sslimages.shoppersstop.com/sys-master/root/hb6/h10/17148313763870/-Tommy-H---web.jpg","link":"/men"},
       {picture: "https://sslimages.shoppersstop.com/sys-master/root/h28/h6a/17150852464670/LEVIS-----WEB.jpg","link":"/men"},
       {picture: "https://sslimages.shoppersstop.com/sys-master/root/h3c/h77/17152454787102/Sport----WEB-20210208.jpg","link":"/watches"},
       { picture: "https://sslimages.shoppersstop.com/sys-master/root/h4c/h7a/17152454852638/T-Touch-WEB-20210208.jpg","link":"/watches"}

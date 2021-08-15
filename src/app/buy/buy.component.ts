@@ -17,8 +17,10 @@ export class BuyComponent implements OnInit {
   data : any
   states: any
   DFeeStatement : string
-  constructor(private http:HttpClient, private user : UserService,
-    private dialogRef : MatDialogRef<BuyComponent> , @Inject(MAT_DIALOG_DATA) data) { 
+  finaloffer;
+  constructor(private http:HttpClient, private user : UserService, 
+    private dialogRef : MatDialogRef<BuyComponent>,@Inject(MAT_DIALOG_DATA) data) { 
+    this.finaloffer=localStorage.getItem("offer")
     this.data = data;
     this.userCart = data['items']
     this.qty = data['qty']

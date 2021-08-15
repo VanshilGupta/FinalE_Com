@@ -224,9 +224,15 @@
               </div>
               <span>{{DFeeStatement}}</span>
           </li>
+          <li [ngClass] = "{'text-success' : data.dFee == 0, 'text-danger' : data.dFee!=0}" class="list-group-item d-flex justify-content-between bg-light">
+            <div>
+              <h4 class="my-0">Wheel offer</h4>
+            </div>
+            <span>-{{finaloffer}}</span>
+        </li>
           <li class="list-group-item d-flex justify-content-between">
             <h4>TOTAL (&#8377;)</h4>
-            <strong>&#8377;{{data.total + data.dFee}}</strong>
+            <strong>&#8377;{{data.total + data.dFee - finaloffer}}</strong>
           </li>
         </ul>
 
