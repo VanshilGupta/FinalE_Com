@@ -1,100 +1,223 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Courgette&family=Tangerine&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@400&display=swap');
 
-
-.head{
-    position: sticky;
-    top: 0%;
-    background-color: white;
-    z-index: 999;
+.head {
+  position: sticky;
+  top: 0%;
+  background-color: white;
+  z-index: 999;
 }
-.name{
-    text-transform: uppercase;
-    font-size: 20px;
-    margin-bottom: 7px;
-    font-weight: 600;
-    margin-top: 9px;
-    line-height: 14px;
+.name {
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-bottom: 7px;
+  font-weight: 600;
+  margin-top: 9px;
+  line-height: 14px;
 }
-.name > .heading:hover{
-    text-decoration-line: underline;
-    cursor: pointer;
+.name > .heading:hover {
+  text-decoration-line: underline;
+  cursor: pointer;
 }
-.price{
-    font-weight:bold;
-    font-size: 17px;
+.price {
+  font-weight: bold;
+  font-size: 17px;
 }
-.subname{
-    display: inline-block;
-    width: 364px;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: medium;
-    font-weight: bold;
+.subname {
+  display: inline-block;
+  width: 364px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: medium;
+  font-weight: bold;
 }
-.soldBy{
-    font-family: emoji;
-    color: grey;
-    font-size: 14px;
-    margin-top: 2px;
+.soldBy {
+  font-family: emoji;
+  color: grey;
+  font-size: 14px;
+  margin-top: 2px;
 }
-.off{
-    text-shadow: 0 0 1.5px #32e81c;
-    font-size: 16px;
-}
-
-.box:hover{
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-   
+.off {
+  text-shadow: 0 0 1.5px #32e81c;
+  font-size: 16px;
 }
 
-#quantity{
-    width: 40px;
-    text-align: end;
+.box:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.okButton{
-    box-shadow: rgba(27, 233, 27, 0.16) 0px 1px 4px, rgb(4, 114, 14) 0px 0px 0px 3px;
-    font-weight: bolder;
-    padding: 0px;
-    width: 22px;
+#quantity {
+  width: 40px;
+  text-align: end;
 }
 
-.cartDetailsHeading{
-    font-weight: bold;
-    font-size: 17px;
-    color: rgb(87, 85, 85);
-    font-family: 'Helvetica', 'Arial', sans-serif;
+.okButton {
+  box-shadow: rgba(27, 233, 27, 0.16) 0px 1px 4px,
+    rgb(4, 114, 14) 0px 0px 0px 3px;
+  font-weight: bolder;
+  padding: 0px;
+  width: 22px;
 }
 
-.cartDetails{
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
+.cartDetailsHeading {
+  font-weight: bold;
+  font-size: 17px;
+  color: rgb(87, 85, 85);
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
-.MyCart{
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 10%
-    
+.cartDetails {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
 }
 
-.TotalAmount{
-    font-family: 'Helvetica', 'Arial', sans-serif;
-    font-weight: bold;
-    font-size: 16px;
+.MyCart {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10%;
 }
 
-hr{
-    margin-bottom: 0px; border-width: 1px
+.TotalAmount {
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
 }
 
-#info:hover{
-    cursor:pointer;
+hr {
+  margin-bottom: 0px;
+  border-width: 1px;
 }
 
-.tooltip-info{
-    border: 2px dotted rgb(17, 17, 17);
-    padding: 2px;
-    font-size: 15px;
+#info:hover {
+  cursor: pointer;
+}
+
+.tooltip-info {
+  border: 2px dotted rgb(17, 17, 17);
+  padding: 2px;
+  font-size: 15px;
+}
+
+.empty {
+  height: 500px;
+  position: relative;
+}
+.animate {
+  animation: move 6s;
+  animation-timing-function: ease;
+  position: absolute;
+  top: 30%;
+  animation-fill-mode: forwards;
+}
+
+.moveCart img {
+  width: 200px;
+}
+.empty h1 {
+  position: absolute;
+  top: 20%;
+  font-family: "Cedarville Cursive", cursive;
+  font-weight: lighter;
+  font-size: 50px;
+}
+@keyframes move {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 70%;
+  }
+}
+.animate i{
+    opacity: 0;
+    animation: visible 6s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    z-index: -1;
+    position: relative;
+}
+.fa-apple {
+  font-size: 40px;
+  color: red;
+}
+.fa-apple.first{
+    top: 111px;
+    left: 60px;
+    transform: rotate(-20deg);
+}
+.fa-apple.second{
+    top: 79px;
+    left: 92px;
+    transform: rotate(20deg);
+}
+.animate i.fa-lemon{
+
+  font-size: 35px;
+  color: gold;
+  position: relative;
+  top: 108px;
+  left: 32px;
+}
+.animate i.fa-pepper-hot{
+
+  font-size: 35px;
+  color: darkgreen;
+}
+.fa-pepper-hot.first{
+    top: 105px;
+    left: 32px;
+}
+.fa-pepper-hot.second{
+    top: 80px;
+    left: -78px;
+    transform: scaleX(-1);
+}
+.fa-carrot{
+    font-size: 40px;
+    color: #ed9121;
+    top: 78px;
+    right: 76px;
+}
+.empty hr{
+    animation: increaseWidth 4s ;
+    border-width: 4px;
+    color: gray;
+    border-style: ridge;
+    position: absolute;
+    top: 139px;
+    width: 84%;
+}
+
+.empty button{
+    opacity: 0;
+    font-family: 'Exo', sans-serif;
+    position: relative;
+    top: 42%;
+    left: 22%;
+    width: 30%;
+    height: 10%;
+    font-size: 21px;
+    background-color: yellow;
+    color: black;
+    font-weight: 300;
+    animation: visible 3s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes visible {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes increaseWidth {
+    from{width: 0%;}
+    to{width: 84%;}
 }

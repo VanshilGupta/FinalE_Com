@@ -1,6 +1,7 @@
 import { JsonPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 
@@ -20,7 +21,7 @@ export class SignupPage implements OnInit {
   users = [];
   todo = {};
   clickBool = false;
-  constructor(private http: HttpClient, private user: UserService,private route : Router) {}
+  constructor(private http: HttpClient, private user: UserService,private route : Router, private snackbar : MatSnackBar) {}
 
   ngOnInit(): void {
     // this.user=this.userinfo.getdata()
@@ -38,7 +39,7 @@ export class SignupPage implements OnInit {
         this.user.register(this.todo).subscribe(
           data => {
             console.log("reg success",data)
-            alert(data);
+            
             this.route.navigate(["/login"])
           },
           error => {

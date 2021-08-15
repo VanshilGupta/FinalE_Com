@@ -10,6 +10,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialog, MatDialogClose, MatDialogModule} from '@angular/material/dialog'
 import { HomepagePageModule } from '../homepage/homepage.module';
 import { BuyComponent } from '../buy/buy.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { BuyComponent } from '../buy/buy.component';
     CartPageRoutingModule,
     MatTooltipModule,
     HomepagePageModule,
+    MatButtonModule,
   ],
   declarations: [CartPage],
 

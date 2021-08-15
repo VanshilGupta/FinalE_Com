@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatDialogModule,
     MatButtonModule,
     MatIconModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSnackBarModule
   ],
   declarations: [HomepagePage,NavbarComponent,FooterComponent,BuyComponent],
   entryComponents : [NavbarComponent,FooterComponent,BuyComponent],

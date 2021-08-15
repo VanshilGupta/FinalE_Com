@@ -9,7 +9,7 @@
         <h2 #hello>{{name}}'s Cart</h2>
       </div>
     </div>
-    <div class="row mt-2">
+    <div class="row mt-2" *ngIf="userCart">
       <div class="col-md-8">
         <div
           class="border border-1 mt-3 rounded-lg p-2 bg-light box"
@@ -76,7 +76,7 @@
                 "
                 (click)="remove(i)"
               >
-              REMOVE
+                REMOVE
               </button>
             </div>
           </div>
@@ -87,7 +87,7 @@
         <div
           class="mt-3 border border-1 pl-2 pt-1 MyCart"
           id="cartD"
-          *ngIf="userCart.length != 0"
+          *ngIf="userCart.length!=0"
         >
           <div class="my-2">
             <span class="pl-2 cartDetailsHeading"
@@ -139,9 +139,36 @@
             ><span class="float-right mr-2">&#8377;{{totalPrice + DFee}}</span>
           </div>
           <div class="p-2">
-            <button mat-raised-button (click) = "buy()" class="btn btn-warning w-100">PROCEED TO BUY</button>
+            <button
+              color = "yello"
+              (click)="buy()"
+              class="btn btn-warning w-100"
+            >
+              PROCEED TO BUY
+            </button>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="catAindex.length == 0">
+      <div class="col empty">
+        <h1>{{emptyCartSentence}}</h1>
+        <div class="animate">
+          <i class="fab fa-apple first"></i>
+          <i class="fab fa-apple second"></i>
+          <i class="fas fa-lemon"></i>
+          <i class="fas fa-pepper-hot first"></i>
+          <i class="fas fa-pepper-hot second"></i>
+          <i class="fas fa-carrot"></i>
+          <div class="moveCart">
+            <img
+              src="http://127.0.0.1:8000/static/assets/emptyCart.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <button routerLink = "/men" mat-raised-button>ADD ITEMS</button>
+        <hr>
       </div>
     </div>
   </div>

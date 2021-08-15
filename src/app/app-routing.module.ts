@@ -17,7 +17,8 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./page1/page1.module').then( m => m.Page1PageModule)
+    loadChildren: () => import('./page1/page1.module').then( m => m.Page1PageModule),
+    canActivate : [ChowkidaarGuard]
   },
 
   {
@@ -32,7 +33,8 @@ const routes: Routes = [
   },
   {
     path: 'signup',
-    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule),
+    canActivate : [ChowkidaarGuard]
   },
   {
     path: 'history',

@@ -13,6 +13,7 @@ import { UserService } from '../user.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class CartPage implements OnInit {
+  emptyCartSentence = '';
   class1 = {
     'text-danger': false,
   };
@@ -24,16 +25,20 @@ export class CartPage implements OnInit {
   TotalMRP: number = 0;
   totalPrice: number = 0;
   qty = [];
-  name : string;
+  name: string;
   userCart = [];
-  catAindex: any;
+  catAindex = [];
   NumberItems: number;
 
-  constructor(private service: UserService, private route: Router, private dialog : MatDialog) {}
+  constructor(
+    private service: UserService,
+    private route: Router,
+    private dialog: MatDialog
+  ) {}
   ngOnInit() {
-    this.service.getUser().subscribe(data=>{
-      this.name = data['name']
-    })
+    this.service.getUser().subscribe((data) => {
+      this.name = data['name'];
+    });
     this.service.getUserCart(this.name).subscribe((data) => {
       this.catAindex = data['data'];
       if (this.x == 0) {
@@ -45,10 +50,9 @@ export class CartPage implements OnInit {
 
       this.service.getDetailedCart(this.name).subscribe((data) => {
         this.userCart = data['data'];
+        if (this.userCart.length == 0) this.updateSentence();
+        else this.emptyCartSentence = '';
         this.updateAll();
-        if (this.userCart.length == 0) {
-          document.getElementById('cartD').style.display = 'none';
-        }
       });
     });
 
@@ -91,11 +95,11 @@ export class CartPage implements OnInit {
   }
 
   navigate(index, name) {
-    let group = this.catAindex[index]['group']
+    let group = this.catAindex[index]['group'];
     console.log(index, name);
     this.route.navigate([`/${group}/product`], {
       queryParams: {
-        group : group,
+        group: group,
         category: this.catAindex[index]['category'],
         name: name,
         id: this.catAindex[index]['id'],
@@ -103,6 +107,17 @@ export class CartPage implements OnInit {
     });
   }
 
+  updateSentence() {
+    console.log('updatinggg');
+    console.log('the empty sentence is ', this.emptyCartSentence);
+    let str = "The cart feels so light, Let's add some items.";
+    var i = 0;
+    var handle = setInterval(() => {
+      this.emptyCartSentence += str[i];
+      i++;
+      if (i >= str.length) clearInterval(handle);
+    }, 70);
+  }
   updateTotalItems() {
     console.log('hey number items');
     this.NumberItems = this.qty.reduce((a, b) => a + b, 0);
@@ -178,6 +193,7 @@ export class CartPage implements OnInit {
     this.service.removeCart(this.name, i).subscribe((data) => {
       console.log(data);
       this.updateOnRemove(i);
+      if (this.catAindex.length == 0) this.updateSentence();
     });
   }
   updateOnRemove(index) {
@@ -186,23 +202,22 @@ export class CartPage implements OnInit {
     this.catAindex.splice(index, 1);
     this.updateAll();
   }
-  buy(){
+  buy() {
     let dialogRef = this.dialog.open(BuyComponent, {
-      disableClose : true,
-      autoFocus : true,
-      panelClass : ['my-dialog','full-screen-modal'],
-      data : {
-        'items' : this.userCart,
-        'qty' : this.qty,
-        'mrp' : this.TotalMRP,
-        'total' : this.totalPrice,
-        'dFee' : this.DFee,
-        'totalItems' : this.NumberItems
-      }
-    }
-    )
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog Result : ${result}`)
-    })
+      disableClose: true,
+      autoFocus: true,
+      panelClass: ['my-dialog', 'full-screen-modal'],
+      data: {
+        items: this.userCart,
+        qty: this.qty,
+        mrp: this.TotalMRP,
+        total: this.totalPrice,
+        dFee: this.DFee,
+        totalItems: this.NumberItems,
+      },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog Result : ${result}`);
+    });
   }
 }
