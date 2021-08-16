@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from '../navbar/navbar.component';
 import {FooterComponent} from '../footer/footer.component';
 
@@ -17,6 +17,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CreditCardDirectivesModule } from 'angular-cc-library';
 
 
 @NgModule({
@@ -29,7 +30,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatButtonModule,
     MatIconModule,
     MatRadioModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    CreditCardDirectivesModule,
+    FormsModule,ReactiveFormsModule
   ],
   declarations: [HomepagePage,NavbarComponent,FooterComponent,BuyComponent],
   entryComponents : [NavbarComponent,FooterComponent,BuyComponent],

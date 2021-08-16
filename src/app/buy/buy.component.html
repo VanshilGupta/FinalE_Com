@@ -13,42 +13,79 @@
 <mat-dialog-content>
   <div class="container wow fadeIn">
     <!-- Heading -->
-
     <!--Grid row-->
     <div class="row">
       <!--Grid column-->
       <div class="col-md-8 mb-2">
-        <!--Card-->
+        <div class="row" *ngIf = "shippingDetails.length!=0">
+          <div class="col-md m-3">
+            <h4 class="text-secondary mb-0">Saved Details</h4>
+            <mat-radio-group
+              class="d-flex flex-row shipmentCards py-2"
+              name="card-type"
+              [(ngModel)]="detailNumber"
+              color = "primary"
+              (change) = "change()"
+            >
+              <mat-radio-button class="cardRadio mx-1 px-2 pt-1"
+                *ngFor="let card of shippingDetails; let i = index"
+                value="{{ i }}"
+              >
+                <!-- <div class="card" style="max-width: 100%">
+                  <div class="card-body"> -->
+                    <p>
+                      {{ card.address.substr(0, 6) }}........{{
+                        card.address.substr(card.address.length - 6)
+                      }}
+                      <span class="float-right"><i (click) = "removeCard(i)" class="fa fa-minus" aria-hidden="true"></i></span>
+                    </p>
+                    <strong
+                      ><p>
+                        {{ card.cardName.toUpperCase() }} {{ card.creditCard.substr(0,5) }} **** **** {{card.creditCard.substr(card.creditCard.length - 4)}}
+                      </p></strong
+                    >
+                  <!-- </div>
+                </div> -->
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+
         <div class="card">
-          <!--Card content-->
-          <form ngNativeValidate #detailsForm = "ngForm" (ngSubmit) = "placeOrder(detailsForm.value)" class="card-body">
-            <!--Grid row-->
-
-            <!--Grid row-->
-
-            <!--Username-->
-
-            <!--email-->
-
-            <!--address-->
+          <!-- <form [formGroup] = "demoForm" (ngSubmit)="onSubmit(demoForm)" novalidate>
+            <input id="cc-number" formControlName="creditCard" type="tel" autocomplete="cc-number" ccNumber>
+            <input id="cc-exp-date" formControlName="expirationDate" type="tel" autocomplete="cc-exp" ccExp>
+            <input id="cc-cvc" formControlName="cvc" type="tel" autocomplete="off" ccCVC>
+        </form> -->
+          <form
+            ngNativeValidate
+            [formGroup]="detailsForm"
+            (ngSubmit)="placeOrder(detailsForm.value)"
+            class="card-body"
+          >
             <div class="mb-3">
               <label for="address" class="">Address</label>
               <input
-              name="address"
-                type="text"
+                formControlName = "address"
+                type="tel"
                 id="address"
                 class="form-control"
                 placeholder="1234 Main St"
-                ngModel
                 required
+                ngModel
               />
             </div>
 
             <div class="row">
               <div class="col-lg-4 col-md-6 mb-2">
                 <label for="state">State</label>
-                <select name="state" class="custom-select d-block w-100" id="state"
-                ngModel required>
+                <select
+                  formControlName="state"
+                  class="custom-select d-block w-100"
+                  id="state"
+                  ngModel
+                  required
+                >
                   <option value="">Choose...</option>
                   <option *ngFor="let item of states">{{ item }}</option>
                 </select>
@@ -60,7 +97,7 @@
               <div class="col-lg-4 col-md-6 mb-2">
                 <label for="zip">Zip</label>
                 <input
-                name="postal-code"
+                  formControlName="postalCode"
                   type="text"
                   class="form-control"
                   id="zip"
@@ -76,7 +113,7 @@
 
             <div class="custom-control custom-checkbox">
               <input
-              name="sameAdd"
+                formControlName="sameAdd"
                 type="checkbox"
                 class="custom-control-input"
                 id="same-address"
@@ -87,9 +124,8 @@
               >
             </div>
             <div class="custom-control custom-checkbox">
-              
               <input
-                name="saveInfo"
+                formControlName="saveInfo"
                 type="checkbox"
                 class="custom-control-input"
                 id="save-info"
@@ -103,27 +139,26 @@
             <hr />
 
             <div class="d-block my-2">
-              <mat-radio-group required class="d-flex flex-column" name = "card-type" ngModel>
-                <mat-radio-button value = "cc">Credit Card</mat-radio-button>
-                <!-- <label class="custom-control-label" for="credit"
-                  >Credit card</label
-                > -->
-                <mat-radio-button
-                  value="dc"
-                >Debit Card</mat-radio-button>
-                <!-- <label class="custom-control-label" for="debit"
-                  >Debit card</label> -->
-            </mat-radio-group>
+              <mat-radio-group
+                required
+                class="d-flex flex-column"
+                formControlName="cardType"
+                ngModel
+              >
+                <mat-radio-button value="cc"> CreditCard</mat-radio-button>
+
+                <mat-radio-button value="dc">Debit Card</mat-radio-button>
+              </mat-radio-group>
             </div>
             <div class="row">
               <div class="col-md-6 mb-2">
                 <label for="cc-name">Name on card</label>
                 <input
-                name="card-name"
+                  formControlName="cardName"
                   type="text"
                   class="form-control"
                   id="cc-name"
-                  placeholder=""
+                  placeholder="John Marston"
                   ngModel
                   required
                 />
@@ -133,13 +168,15 @@
               <div class="col-md-6 mb-2">
                 <label for="cc-number">Credit card number</label>
                 <input
-                name="card-number"
-                  type="text"
                   class="form-control"
                   id="cc-number"
-                  placeholder=""
+                  type="tel"
+                  formControlName="creditCard"
+                  autocomplete="cc-number"
+                  ccNumber
                   ngModel
-                  required
+                  reuired
+                  placeholder="0000 0000 0000 0000"
                 />
                 <div class="invalid-feedback">
                   Credit card number is required
@@ -148,28 +185,32 @@
             </div>
             <div class="row">
               <div class="col-md-3 mb-2">
-                <label for="cc-expiration">Expiration</label>
+                <label for="cc-exp-date">Expiration</label>
                 <input
-                name="card-expiry"
-                  type="text"
+                  id="cc-exp-date"
                   class="form-control"
-                  id="cc-expiration"
-                  placeholder=""
+                  placeholder="mm/yyyy"
+                  formControlName="expirationDate"
+                  type="tel"
+                  autocomplete="cc-exp"
+                  ccExp
                   ngModel
                   required
                 />
                 <div class="invalid-feedback">Expiration date required</div>
               </div>
               <div class="col-md-3 mb-2">
-                <label for="cc-expiration">CVV</label>
+                <label for="cc-cvc">CVV</label>
                 <input
-                name="card-cvv"
-                  type="text"
-                  class="form-control"
-                  id="cc-cvv"
-                  placeholder=""
+                  id="cc-cvc"
+                  formControlName="cvc"
+                  type="tel"
+                  autocomplete="off"
+                  ccCVC
                   ngModel
                   required
+                  placeholder="XXX"
+                  class="form-control"
                 />
                 <div class="invalid-feedback">Security code required</div>
               </div>
@@ -197,42 +238,61 @@
           >
             <div>
               <h5 class="my-0">
-                <span>{{ item.name }}</span
-                > - {{ qty[i]}}
+                <span>{{ item.name }}</span> - {{ qty[i] }}
               </h5>
               <small class="text-muted">{{ item.subname }}</small>
             </div>
             <span class="text-muted">&#8377;{{ item.price * qty[i] }}</span>
           </li>
-          <li class="list-group-item d-flex justify-content-between bg-light text-danger">
+          <li
+            class="
+              list-group-item
+              d-flex
+              justify-content-between
+              bg-light
+              text-danger
+            "
+          >
             <div>
               <h4 class="my-0">MRP</h4>
             </div>
-            <span>&#8377;{{ data.mrp| number :
-              '1.0-0' }}</span>
+            <span>&#8377;{{ data.mrp | number: "1.0-0" }}</span>
           </li>
           <li class="list-group-item d-flex justify-content-between bg-light">
             <div class="text-success">
               <h4 class="my-0">Discount</h4>
             </div>
-            <span class="text-success">-&#8377;{{ data.mrp - data.total | number :
-              '1.0-0' }}</span>
+            <span class="text-success"
+              >-&#8377;{{ data.mrp - data.total | number: "1.0-0" }}</span
+            >
           </li>
-          <li [ngClass] = "{'text-success' : data.dFee == 0, 'text-danger' : data.dFee!=0}" class="list-group-item d-flex justify-content-between bg-light">
-              <div>
-                <h4 class="my-0">Delievery Fee</h4>
-              </div>
-              <span>{{DFeeStatement}}</span>
+          <li
+            [ngClass]="{
+              'text-success': data.dFee == 0,
+              'text-danger': data.dFee != 0
+            }"
+            class="list-group-item d-flex justify-content-between bg-light"
+          >
+            <div>
+              <h4 class="my-0">Delievery Fee</h4>
+            </div>
+            <span>{{ DFeeStatement }}</span>
           </li>
-          <li [ngClass] = "{'text-success' : data.dFee == 0, 'text-danger' : data.dFee!=0}" class="list-group-item d-flex justify-content-between bg-light">
+          <li
+            [ngClass]="{
+              'text-success': data.dFee == 0,
+              'text-danger': data.dFee != 0
+            }"
+            class="list-group-item d-flex justify-content-between bg-light"
+          >
             <div>
               <h4 class="my-0">Wheel offer</h4>
             </div>
-            <span>-{{finaloffer}}</span>
-        </li>
+            <span>-{{ finaloffer }}</span>
+          </li>
           <li class="list-group-item d-flex justify-content-between">
             <h4>TOTAL (&#8377;)</h4>
-            <strong>&#8377;{{data.total + data.dFee - finaloffer}}</strong>
+            <strong>&#8377;{{ data.total + data.dFee - finaloffer }}</strong>
           </li>
         </ul>
 

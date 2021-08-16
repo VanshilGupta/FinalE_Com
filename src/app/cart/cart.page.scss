@@ -106,7 +106,7 @@ hr {
   position: relative;
 }
 .animate {
-  animation: move 6s;
+  animation: move 4s;
   animation-timing-function: ease;
   position: absolute;
   top: 30%;
@@ -134,7 +134,7 @@ hr {
 .animate i{
     opacity: 0;
     animation: visible 6s;
-    animation-delay: 2s;
+    animation-delay: 1.5s;
     animation-fill-mode: forwards;
     z-index: -1;
     position: relative;
@@ -182,7 +182,7 @@ hr {
     right: 76px;
 }
 .empty hr{
-    animation: increaseWidth 4s ;
+    animation: increaseWidth 3s ;
     border-width: 4px;
     color: gray;
     border-style: ridge;
@@ -204,7 +204,7 @@ hr {
     color: black;
     font-weight: 300;
     animation: visible 3s;
-    animation-delay: 3s;
+    animation-delay: 2s;
     animation-fill-mode: forwards;
 }
 

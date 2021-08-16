@@ -16,8 +16,17 @@
 
   .full-screen-modal {
     .mat-dialog-content {
-      max-height: 100%
+      max-height: 100%,
     }
+    overflow-y: scroll;
   }
 
   li { margin-top : -1px !important }
+
+  .shipmentCards{
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .cardRadio{
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  }

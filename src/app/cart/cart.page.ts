@@ -1,4 +1,5 @@
 import { AUTO_STYLE } from '@angular/animations';
+import { JsonPipe } from '@angular/common';
 import { Conditional } from '@angular/compiler';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -31,15 +32,19 @@ export class CartPage implements OnInit {
   NumberItems: number;
   finaloffer;
 
-  constructor(private service: UserService, private route: Router, private dialog : MatDialog) {
-    this.finaloffer=localStorage.getItem("offer")
+  constructor(
+    private service: UserService,
+    private route: Router,
+    private dialog: MatDialog
+  ) {
+    this.finaloffer = localStorage.getItem('offer');
   }
   ngOnInit() {
     this.service.getUser().subscribe((data) => {
       this.name = data['name'];
     });
     this.service.getUserCart(this.name).subscribe((data) => {
-      this.catAindex= data['data'];
+      this.catAindex = data['data'];
       if (this.x == 0) {
         this.catAindex.forEach((element) => {
           this.qty.push(element['qty']);
@@ -53,6 +58,8 @@ export class CartPage implements OnInit {
         else this.emptyCartSentence = '';
         this.updateAll();
       });
+    },error=>{
+      this.updateSentence()
     });
 
     // this.catAindex.forEach((element) => {
@@ -115,7 +122,7 @@ export class CartPage implements OnInit {
       this.emptyCartSentence += str[i];
       i++;
       if (i >= str.length) clearInterval(handle);
-    }, 70);
+    }, 50);
   }
   updateTotalItems() {
     console.log('hey number items');
@@ -216,7 +223,16 @@ export class CartPage implements OnInit {
       },
     });
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog Result : ${result}`);
+      console.log("The result is",result);
+      if (result['saveInfo'] == true) {
+        console.log('save info is here');
+        this.service.checkOut(result).subscribe((result2) => {
+          console.log(result2);
+        });
+      }
+      this.userCart = [];
+      this.catAindex = [];
+      this.updateSentence();
     });
   }
 }
