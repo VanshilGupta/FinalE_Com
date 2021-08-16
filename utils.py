@@ -3,7 +3,6 @@ import jwt
 from django.conf import settings
 from django.http import HttpResponse
 
-
 def requireLogin(to_authenticate_fn):
     @wraps(to_authenticate_fn)
     def inner(request, *args, **kwargs):
@@ -24,3 +23,6 @@ def verify_token(token):
         return None
 
     return {'email': data['email']}
+
+
+    

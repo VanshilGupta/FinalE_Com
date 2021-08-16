@@ -25,5 +25,9 @@ urlpatterns = [
     path('login',views.login ,name = "login"),
     path('verify',views.verify,name = "verify"),
     path('register',views.register,name = "Registrations"),
-    path('details',views.details,name = "UserDetails")
+    path('details',views.details,name = "UserDetails"),
+    path('checkOut',views.checkOut,name = "SaveCheckOutDetails"),
+    path('removeCheckOut',views.removeCheckOut,name = "RemoveCheckOutDetails"),
+    path('orderPlaced',views.placeOrder,name = "OrderPlaced"),
+    path('history',views.getHistory,name = "GetHistory")
 ]
