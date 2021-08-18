@@ -181,17 +181,18 @@ def removeCheckOut(request):
 def placeOrder(request):
     token = request.headers.get('Authorization', None)
     email = jwt.decode(token, settings.SECRET_KEY, algorithms='HS256')['email']
+    totalPrice = request.GET.get('totalPrice')
     data = collection2.find_one({'email': email})['cart']
     collection2.update_one({'email': email}, {'$unset': {"cart": 1}})
     date = datetime.datetime.now().strftime('%d %B %Y')
-    entry = {'data': data, 'date': date}
+    entry = {'data': data, 'date': date,'totalPrice' : totalPrice}
     collection2.update_one(
         {'email': email}, {'$push': {'orderHistory': entry}})
     return JsonResponse({'status': True})
 
 
 @csrf_exempt
-def getHistory(request):
+def getOrders(request):
     token = request.headers.get('Authorization', None)
     email = jwt.decode(token, settings.SECRET_KEY, algorithms='HS256')['email']
     data = collection2.find_one({'email': email})['orderHistory']
@@ -215,6 +216,13 @@ def getHistory(request):
     except:
         return HttpResponse('No order placed before', status=401)
 
+@csrf_exempt
+def getHistory(request):
+    print('running?')
+    token = request.headers.get('Authorization', None)
+    email = jwt.decode(token, settings.SECRET_KEY, algorithms='HS256')['email']
+    data = collection2.find_one({'email': email})['orderHistory']
+    return JsonResponse({'data' : data})
 
 @utils.requireLogin
 def verify(request):

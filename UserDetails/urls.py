@@ -29,5 +29,6 @@ urlpatterns = [
     path('checkOut',views.checkOut,name = "SaveCheckOutDetails"),
     path('removeCheckOut',views.removeCheckOut,name = "RemoveCheckOutDetails"),
     path('orderPlaced',views.placeOrder,name = "OrderPlaced"),
+    path('orders',views.getOrders,name = "GetOrders"),
     path('history',views.getHistory,name = "GetHistory")
 ]
