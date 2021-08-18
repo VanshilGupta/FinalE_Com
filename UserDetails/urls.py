@@ -30,5 +30,6 @@ urlpatterns = [
     path('removeCheckOut',views.removeCheckOut,name = "RemoveCheckOutDetails"),
     path('orderPlaced',views.placeOrder,name = "OrderPlaced"),
     path('orders',views.getOrders,name = "GetOrders"),
-    path('history',views.getHistory,name = "GetHistory")
+    path('history',views.getHistory,name = "GetHistory"),
+    path('updated',views.updated,name = "updated")
 ]
