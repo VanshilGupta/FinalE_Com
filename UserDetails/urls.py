@@ -25,5 +25,6 @@ urlpatterns = [
     path('login',views.login ,name = "login"),
     path('verify',views.verify,name = "verify"),
     path('register',views.register,name = "Registrations"),
-    path('details',views.details,name = "UserDetails")
+    path('details',views.details,name = "UserDetails"),
+    path('updated',views.updated,name = "updated")
 ]

@@ -1,3 +1,4 @@
+from MenDetails.views import data
 from django.shortcuts import render
 import json
 from django.http import HttpResponse, JsonResponse
@@ -17,7 +18,11 @@ men = settings.MEN_PRODUCTS
 women = settings.WOMEN_PRODUCTS
 watch = settings.WATCHES_PRODUCTS
 
-
+def idconvertor() :
+    users1 = [i for i in collection2.find()]
+    for user in users1:
+        user['_id'] = str(user['_id'])
+    return users1
 @csrf_exempt
 def cart(request):
     token = request.headers.get('Authorization', None)
@@ -43,10 +48,17 @@ def cart(request):
 
 @csrf_exempt
 def details(request):
-    token = request.headers.get('Authorization', None).encode('utf-8')
+    token = request.headers.get('Authorization', None)
     data = jwt.decode(token, settings.SECRET_KEY, algorithms='HS256')
+    # if request.method=="GET":
     col = collection2.find_one({'email': data['email']})
-    return JsonResponse({'name': col['name'], 'email': col['email']})
+    return JsonResponse({'name': col['name'], 'email': col['email'],'number':col['number']})
+    # else:
+    #     data1=json.loads(request.body)
+    #     collection2.update_one({'email': data['email']},{'$set':{"name":data1["name"]}},{'$set':{"number":data1["number"]}})
+    #     return JsonResponse({'status':True,'message':'Details uptdated'})
+
+   
 
 
 def cartCheck(data, email):
@@ -121,7 +133,7 @@ def login(request):
          'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=24 * 60 * 60)
          },
         settings.SECRET_KEY,
-        algorithm="HS256").decode('utf-8')
+        algorithm="HS256")
     print(type(token))
     return JsonResponse({'status': True, 'token': token})
 
@@ -141,6 +153,24 @@ def register(request):
         collection2.insert_one(data)
         return HttpResponse("Signup Successful!", status=200)
 
+@csrf_exempt
+@api_view(['POST'])
+def updated(request):
+    token = request.headers.get('Authorization', None)
+    email = jwt.decode(token, settings.SECRET_KEY, algorithms='HS256')['email']
+    data = json.loads(request.body)
+    print(data)
+    collection2.update_one({'email':email},{'$set':{"name": data["name"]}})
+    collection2.update_one({'email':email},{'$set':{"number": data["number"]}})
+    return JsonResponse({'status': "True"})
+#    users1 = idconvertor()
+#    data = json.loads(request.body)
+
+#    for user in users1:
+#         if user['email'] == data['email']:
+#             collection2.update_one({'email': data['email']}, {'$set': {"name": data["name"]}})
+#             collection2.update_one({'email': data['email']}, {'$set': {"number": data["number"]}})
+#             return JsonResponse({'status': "True"})
 
 # @utils.requireLogin
 def verify(request):
