@@ -1,7 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+.head {
+    position: sticky;
+    top: 0%;
+    background-color: white;
+    z-index: 999;
+  }
+
 .width{
     font-size: 30px;
 }
 .border{
     border: 1px solid black;
     padding: 30px;
+}
+.head{
+    font-size: 28px;
+}
+.orderPlaced{
+
+}
+.date{
+
+}
+.nopadding{
+    padding: 0px;
+}
+.vOrdDet{
+    text-decoration: none;
+}
+.name {
+    font-size: 20px;
+    font-weight: 400;;
+    max-width: 515px;
+  }
+.name:hover{
+    text-decoration-line: underline;
+    cursor: pointer;
+}
+.qty{
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+.buyAgain{
+    background-color: gold;
+    font-size: 13px;
 }

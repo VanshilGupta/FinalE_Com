@@ -3,18 +3,70 @@
 </ion-header>
 
 <ion-content>
+  <!-- Heading -->
+
   <div class="container">
-    <div class="row">
-      <div class="col-md mt-3">
-        <h1>
-          <strong>Order History</strong>
-        </h1>
+    <div class="row head">
+      <div class="col-md mt-4">
+        <h1>Your Orders</h1>
       </div>
     </div>
 
-    <div class="row text-center">
-      <div class="col-md-8 border">
-        <div class="row">
+    <div
+      *ngFor="let item of prevOrders;let i = index"
+      class="mt-2 row justify-content-center"
+    >
+      <div class="col-md-10">
+        <div class="row border border-secondary nopadding">
+          <div class="col-sm-6">
+            <div class="row py-1">
+              <div class="col-md-6">
+                <span class="d-block orderPlaced text-secondary"
+                  >ORDER PLACED</span
+                >
+                <span class="date d-block">{{item.date}}</span>
+              </div>
+              <div class="col-md-6">
+                <span class="d-block orderPlaced text-secondary">TOTAL</span>
+                <span class="date d-block">&#8377;{{item.totalPrice}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="row float-right py-1">
+              <div class="col-md text-right">
+                <span class="text-secondary d-block">ORDER #{{i}}</span>
+                <a class="text-decor-none" href=""
+                  ><span class="text-primary">View order details</span></a
+                >
+                <a class="text-decor-none" href=""
+                  ><span class="text-primary ml-3">INVOICE</span></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngFor = "let entry of item.data;let j= index" class="row border border-secondary nopadding py-3 pt-4">
+            <div class="col-sm-2 text-right">
+                <img (click) = "navigate(i,j)"  style="cursor: pointer;" class="w-75" [src] = "entry.src" alt="">
+            </div>
+            <div class="col-sm">
+                <p (click) = "navigate(i,j)" class="d-inline name text-info">{{entry.name}}, {{entry.subname}}</p>
+                <span class="float-right mr-1 text-secondary">&#8377;{{entry.price}}</span>
+                <p class="qty mt-2 ">
+                    <span>Qty</span> : <span>{{orderHis[i].data[j].qty}}</span>
+                </p>
+                <p class="mt-1">
+                    <button mat-raised-button class="text-left buyAgain"><span><i class="fa fa-refresh" aria-hidden="true"></i></span><span class="ml-1">Buy Again</span></button>
+                    <span class="float-right mr-1"><button mat-raised-button>Write a product review</button></span>
+                </p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="row">
           <div class="col-md-4">
             <div class="row"><strong>Product Name</strong></div>
             <div class="row pt-2" style="color: rgb(196, 194, 194)">
@@ -44,10 +96,7 @@
               <a href="#"><strong>DOWNLOAD INVOICE</strong></a>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        </div> -->
 
   <!-- <div class="col-md-2"></div>
     </div>

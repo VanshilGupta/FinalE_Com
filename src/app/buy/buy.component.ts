@@ -62,9 +62,6 @@ export class BuyComponent implements OnInit {
     });
   }
   placeOrder(v){
-      this.user.orderPlaced().subscribe(result=>{
-        console.log("Order is placed" , result)
-      })
       this.dialogRef.close(v)
   }
   onSubmit(form) {

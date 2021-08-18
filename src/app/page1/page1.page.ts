@@ -30,6 +30,10 @@ export class Page1Page implements OnInit {
         console.log(this.todo);
         this.User.login(this.todo).subscribe(data=>{
            localStorage.setItem('token',data['token'])
+           this.User.getUser().subscribe((data) => {
+            localStorage.setItem('name',data['name'])
+            localStorage.setItem('email',data['email'])
+          });
           alert("Login Successful")
          
           this.route.navigate(["/homepage"])

@@ -40,9 +40,7 @@ export class CartPage implements OnInit {
     this.finaloffer = localStorage.getItem('offer');
   }
   ngOnInit() {
-    this.service.getUser().subscribe((data) => {
-      this.name = data['name'];
-    });
+    this.name = localStorage.getItem('name')
     this.service.getUserCart(this.name).subscribe((data) => {
       this.catAindex = data['data'];
       if (this.x == 0) {
@@ -51,16 +49,17 @@ export class CartPage implements OnInit {
         });
       }
       this.x = 1;
-
+    })
       this.service.getDetailedCart(this.name).subscribe((data) => {
         this.userCart = data['data'];
         if (this.userCart.length == 0) this.updateSentence();
         else this.emptyCartSentence = '';
         this.updateAll();
-      });
-    },error=>{
-      this.updateSentence()
-    });
+      },error=>{
+        this.updateSentence()
+      }
+      )
+    
 
     // this.catAindex.forEach((element) => {
     //   console.log("Element is : ", element)
@@ -230,9 +229,14 @@ export class CartPage implements OnInit {
           console.log(result2);
         });
       }
+      if(result!='false'){
+        this.service.orderPlaced(this.totalPrice + this.DFee - this.finaloffer).subscribe(result=>{
+          console.log("Order is placed" , result)
+        })
       this.userCart = [];
       this.catAindex = [];
       this.updateSentence();
+      }
     });
   }
 }

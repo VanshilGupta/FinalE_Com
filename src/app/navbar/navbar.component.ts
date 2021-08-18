@@ -9,7 +9,7 @@ import { UserService } from '../user.service';
 })
 export class NavbarComponent implements OnInit {
   token: any;
-  user: any = [];
+  user: any = {};
 
 
   constructor(private service: UserService, private router: Router) {
@@ -17,15 +17,16 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.getUser().subscribe((data) => {
-      this.user = data;
-    });
+    this.user['name'] = localStorage.getItem('name');
+    this.user['email'] = localStorage.getItem('email')
   }
 
   logOut(){
     console.log("Logged out")
     this.token = null
     localStorage.removeItem('token')
+    localStorage.removeItem('name')
+    localStorage.removeItem('email')
     this.router.navigate(["/login"])
   }
 }

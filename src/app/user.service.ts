@@ -98,7 +98,13 @@ export class UserService {
     return this.http.get('http://127.0.0.1:8000/user' + '/removeCheckOut' , {params : {index : index}})
   }
 
-  orderPlaced(){
-    return this.http.get('http://127.0.0.1:8000/user' + '/orderPlaced')
+  orderPlaced(price){
+    return this.http.get('http://127.0.0.1:8000/user' + '/orderPlaced',{params : {'totalPrice' : price}})
+  }
+  getOrders(){
+    return this.http.get('http://127.0.0.1:8000/user' + '/orders')
+  }
+  getHistory(){
+    return this.http.get('http://127.0.0.1:8000/user' + '/history')
   }
 }
