@@ -104,6 +104,7 @@ export class WeboffersPage implements OnInit {
   } 
 
   @ViewChild(NgxWheelComponent, { static: false }) wheel;
+  
 
   seed = [...Array(12).keys()]
   idToLandOn: any;

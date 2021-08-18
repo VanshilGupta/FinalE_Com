@@ -7,163 +7,170 @@
     <div class="row text-center mt-5">
       <div class="col">
         <div class="d-inline-block login rounded-4">
-          <div class="imgContainer m-4">
-            <img
+          
+            <div class="row"><div class="col-md-6">
+              <div class="imgContainer m-4">
+              <img
               class="loginImg"
               src="http://127.0.0.1:8000/static/assets/registerLogo.jpg"
               alt="Register"
             />
             <div class="overlay">
               <div class="text">
-                Shopper's Stop plant one tree whenever someone join with us.
-                Thanks for contributing to this noble cause.
+               
+                <p> Shopper's Stop plant one tree whenever someone join with us. Thanks for contributing to this noble cause.</p>
               </div>
             </div>
-          </div>
-          <div class="mt-2 loginDetails p-4">
-            <p class="loginHeading py-4">REGISTER</p>
-            <!-- <form (ngSubmit)="logForm()" [ngModelOptions]="{standalone: true}"> -->
-            <!-- <ion-item>
-                  <ion-input
-                    type="email"
-                    [(ngModel)]="todo.email"
-                    placeholder="Email"
-                  ></ion-input>
-                </ion-item>
-                <ion-item>
-                  <ion-input
-                    type="password"
-                    [(ngModel)]="todo.pass"
-                    placeholder="Password"
-                  ></ion-input>
-                </ion-item>
-                <ion-button type="submit" block="true" clear = "True">LOGIN</ion-button> -->
-
-            <form
-              #form="ngForm"
-              (keydown)="login(form,$event)"
-              (ngSubmit) = "submit(form,$event)"
-              class="mt-3"
-
-            >
-              <ion-item>
-                <ion-label position="floating" class="text-secondary">
-                  Name </ion-label
-                ><ion-input
-                  #myName
-                  name="name"
-                  type="text"
-                  [(ngModel)]="todo.name"
-                  required
-                ></ion-input
-              ></ion-item>
-              <div class="text-left ml-1 my-1"></div>
-
-              <ion-item>
-                <ion-label position="floating" class="text-secondary">
-                  Email
-                </ion-label>
-                <ion-input
-                  (ionBlur)="change3($event)"
-                  #myEmail
-                  [(ngModel)]="todo.email"
-                  (ionChange)="check3($event)"
-                  name="email"
-                  type="email"
-                  pattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
-                  autofocus
-                  required
-                ></ion-input
-              ></ion-item>
-              <div class="text-danger text-left ml-1 my-1">
-                <span id="EmailValidation" class="d-none"
-                  ><ion-icon name="caret-forward-outline"></ion-icon>Must be a
-                  valid email
-                </span>
-              </div>
-
-              <!-- <ion-item>
-                  <ion-input
-                  name="password"
-                  type="password"
-                  placeholder="Password"
-                  ngModel
-                  required
-                  ></ion-input>
-                </ion-item> -->
-              <ion-item>
-                <ion-label position="floating" class="text-secondary">
-                  Number
-                </ion-label>
-                <ion-input
-                  #myNumber
-                  (ionFocus)="change2($event)"
-                  (ionBlur)="change2($event)"
-                  (ionChange)="check2($event)"
-                  name="number"
-                  type="tel"
-                  pattern="[0-9]{10}"
-                  [(ngModel)]="todo.number"
-                  required
-                ></ion-input>
-              </ion-item>
-              <div id="10D" class="text-left ml-1 my-1">
-                <span class="d-block" *ngIf="numberBool"
-                  ><ion-icon name="caret-forward-outline"></ion-icon>Must be 10
-                  digits
-                </span>
-              </div>
-
-              <ion-item>
-                <ion-label position="floating" class="text-secondary">
-                  Password
-                </ion-label>
-                <ion-input
-                  #myPassword
-                  (ionFocus)="change1($event)"
-                  (ionBlur)="change1($event)"
-                  (ionChange)="check($event)"
-                  name="password"
-                  type="password"
-                  pattern="(?=.*\d)(?=.*[!@#]).{6,}"
-                  [(ngModel)]="todo.password"
-                  required="true"
-                ></ion-input>
-              </ion-item>
-              <div id="a6char" class="text-left ml-1 mt-1">
-                <span class="d-block" *ngIf="passwordBool"
-                  ><ion-icon name="caret-forward-outline"></ion-icon>Atleast 6
-                  characters
-                </span>
-              </div>
-              <div id="NandSC" class="text-left ml-1 mt-1">
-                <span class="d-block" *ngIf="passwordBool"
-                  ><ion-icon name="caret-forward-outline"></ion-icon>Should
-                  contain a number and a special character !@#</span
+            </div> </div>
+            <div class="col-md-6">
+              <div class="mt-2 loginDetails p-4">
+                <p class="loginHeading py-4">REGISTER</p>
+                <!-- <form (ngSubmit)="logForm()" [ngModelOptions]="{standalone: true}"> -->
+                <!-- <ion-item>
+                      <ion-input
+                        type="email"
+                        [(ngModel)]="todo.email"
+                        placeholder="Email"
+                      ></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input
+                        type="password"
+                        [(ngModel)]="todo.pass"
+                        placeholder="Password"
+                      ></ion-input>
+                    </ion-item>
+                    <ion-button type="submit" block="true" clear = "True">LOGIN</ion-button> -->
+    
+                <form
+                  #form="ngForm"
+                  (keydown)="login(form,$event)"
+                  (ngSubmit) = "submit(form,$event)"
+                  class="mt-3"
+    
                 >
+                  <ion-item>
+                    <ion-label position="floating" class="text-secondary">
+                      Name </ion-label
+                    ><ion-input
+                      #myName
+                      name="name"
+                      type="text"
+                      [(ngModel)]="todo.name"
+                      required
+                    ></ion-input
+                  ></ion-item>
+                  <div class="text-left ml-1 my-1"></div>
+    
+                  <ion-item>
+                    <ion-label position="floating" class="text-secondary">
+                      Email
+                    </ion-label>
+                    <ion-input
+                      (ionBlur)="change3($event)"
+                      #myEmail
+                      [(ngModel)]="todo.email"
+                      (ionChange)="check3($event)"
+                      name="email"
+                      type="email"
+                      pattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+                      autofocus
+                      required
+                    ></ion-input
+                  ></ion-item>
+                  <div class="text-danger text-left ml-1 my-1">
+                    <span id="EmailValidation" class="d-none"
+                      ><ion-icon name="caret-forward-outline"></ion-icon>Must be a
+                      valid email
+                    </span>
+                  </div>
+    
+                  <!-- <ion-item>
+                      <ion-input
+                      name="password"
+                      type="password"
+                      placeholder="Password"
+                      ngModel
+                      required
+                      ></ion-input>
+                    </ion-item> -->
+                  <ion-item>
+                    <ion-label position="floating" class="text-secondary">
+                      Number
+                    </ion-label>
+                    <ion-input
+                      #myNumber
+                      (ionFocus)="change2($event)"
+                      (ionBlur)="change2($event)"
+                      (ionChange)="check2($event)"
+                      name="number"
+                      type="tel"
+                      pattern="[0-9]{10}"
+                      [(ngModel)]="todo.number"
+                      required
+                    ></ion-input>
+                  </ion-item>
+                  <div id="10D" class="text-left ml-1 my-1">
+                    <span class="d-block" *ngIf="numberBool"
+                      ><ion-icon name="caret-forward-outline"></ion-icon>Must be 10
+                      digits
+                    </span>
+                  </div>
+    
+                  <ion-item>
+                    <ion-label position="floating" class="text-secondary">
+                      Password
+                    </ion-label>
+                    <ion-input
+                      #myPassword
+                      (ionFocus)="change1($event)"
+                      (ionBlur)="change1($event)"
+                      (ionChange)="check($event)"
+                      name="password"
+                      type="password"
+                      pattern="(?=.*\d)(?=.*[!@#]).{6,}"
+                      [(ngModel)]="todo.password"
+                      required="true"
+                    ></ion-input>
+                  </ion-item>
+                  <div id="a6char" class="text-left ml-1 mt-1">
+                    <span class="d-block" *ngIf="passwordBool"
+                      ><ion-icon name="caret-forward-outline"></ion-icon>Atleast 6
+                      characters
+                    </span>
+                  </div>
+                  <div id="NandSC" class="text-left ml-1 mt-1">
+                    <span class="d-block" *ngIf="passwordBool"
+                      ><ion-icon name="caret-forward-outline"></ion-icon>Should
+                      contain a number and a special character !@#</span
+                    >
+                  </div>
+    
+                  <ion-button
+                    [disabled]="form.invalid"
+                    size="medium"
+                    type="submit"
+                    expand="block"
+                    class="w-100 login-button my-3 mt-2"
+                    fill="outline"
+                    ><ion-icon name="person-outline" class="pr-1"></ion-icon>
+                    CONTINUE</ion-button
+                  >
+                </form>
+    
+                <hr style="border: 2px solid" class="mt-2" />
+    
+                <a
+                  routerLink="/login"
+                  class="text-secondary font-weight-bold createAccount"
+                >
+                  Existing User? Login
+                </a>
               </div>
-
-              <ion-button
-                [disabled]="form.invalid"
-                size="medium"
-                type="submit"
-                expand="block"
-                class="w-100 login-button my-3 mt-2"
-                fill="outline"
-                ><ion-icon name="person-outline" class="pr-1"></ion-icon>
-                CONTINUE</ion-button
-              >
-            </form>
-
-            <hr style="border: 2px solid" class="mt-2" />
-
-            <a
-              routerLink="/login"
-              class="text-secondary font-weight-bold createAccount"
-            >
-              Existing User? Login
-            </a>
+            </div>
+            
           </div>
+          
         </div>
       </div>
     </div>

@@ -191,7 +191,7 @@ export class HomepagePage implements OnInit {
       
     ]
     this.topStories7 = [
-      {picture: "https://sslimages.shoppersstop.com/sys-master/root/hb6/h10/17148313763870/-Tommy-H---web.jpg","link":"/men"},
+      {picture: "https://sslimages.shoppersstop.com/sys-master/root/h0a/hd3/17115217494046/ALLEN-SOLLY----WEB-.jpg","link":"/men"},
       {picture: "https://sslimages.shoppersstop.com/sys-master/root/h28/h6a/17150852464670/LEVIS-----WEB.jpg","link":"/men"},
       {picture: "https://sslimages.shoppersstop.com/sys-master/root/h3c/h77/17152454787102/Sport----WEB-20210208.jpg","link":"/watches"},
       { picture: "https://sslimages.shoppersstop.com/sys-master/root/h4c/h7a/17152454852638/T-Touch-WEB-20210208.jpg","link":"/watches"}
@@ -199,9 +199,9 @@ export class HomepagePage implements OnInit {
     ]
     this.topStories8 = [
       {picture: "https://sslimages.shoppersstop.com/sys-master/root/h87/hf0/16870856392734/Fab-alley-----web.jpg","link":"/women"},
-      {picture: "https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/7/28/83d9ca97-4aa3-46ce-bd28-b135d3b94a021595935030673-Content-ethnicwear-essentials-everydaykurtas.jpg","link":"/men"},
+      {picture: "https://sslimages.shoppersstop.com/sys-master/root/heb/hfc/17101675135006/VAN-HEUSEN----web-01.jpg","link":"/men"},
       {picture: "https://sslimages.shoppersstop.com/sys-master/root/h7a/he0/17126057082910/Mimosa--web.jpg","link":"/women"},
-      { picture: "https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/19/4aa58fe6-8c61-4e37-9fa8-436c31aecb211597840566511-Content-sportswear-essentials-activewear.png","link":"/men"}
+      { picture: "https://sslimages.shoppersstop.com/sys-master/root/he6/h5b/17186905030686/SPYKAR----885-by-780-POLO-TSHIRTS-WEB-MAIN-TILE-001.jpg","link":"/men"}
       
     ]
   }
