@@ -18,6 +18,7 @@ collection2 = settings.USER_DETAILS
 def data(request):
     if request.method == "GET":
         cate = request.GET.get('category')
+        print("The cate is",cate)
         data = collection.find_one({'category' : cate})
         return JsonResponse({"status" : True, "data" : data["entries"]})
     elif request.method == "POST":

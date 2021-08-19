@@ -122,7 +122,6 @@ def login(request):
     print("run")
     req_user = json.loads(request.body)
     userid = collection2.find_one({'email': req_user['email']})
-    print(req_user['password'])
     if not userid:
         return HttpResponse('Please enter a valid email', status=401)
     if hashlib.sha384(req_user['password'].encode()).hexdigest() != userid['password']:
@@ -133,8 +132,7 @@ def login(request):
          'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=24 * 60 * 60)
          },
         settings.SECRET_KEY,
-        algorithm="HS256")
-    print(type(token))
+        algorithm="HS256").decode()
     return JsonResponse({'status': True, 'token': token})
 
 
@@ -196,13 +194,20 @@ def placeOrder(request):
     token = request.headers.get('Authorization', None)
     email = jwt.decode(token, settings.SECRET_KEY, algorithms='HS256')['email']
     totalPrice = request.GET.get('totalPrice')
+    directBuy = request.GET.get('directBuy')
+    date = datetime.datetime.now().strftime('%d %B %Y')
+    if directBuy == 'true':
+        data = json.loads(request.body)
+        entry = {'data': [data], 'date': date,'totalPrice' : totalPrice}
+        collection2.update_one(
+        {'email': email}, {'$push': {'orderHistory': entry}})
+        return JsonResponse({'status': True,'direct' : True})
     data = collection2.find_one({'email': email})['cart']
     collection2.update_one({'email': email}, {'$unset': {"cart": 1}})
-    date = datetime.datetime.now().strftime('%d %B %Y')
     entry = {'data': data, 'date': date,'totalPrice' : totalPrice}
     collection2.update_one(
         {'email': email}, {'$push': {'orderHistory': entry}})
-    return JsonResponse({'status': True})
+    return JsonResponse({'status': True,'direct' : False})
 
 
 @csrf_exempt
