@@ -15,13 +15,13 @@ export class HistoryPage implements OnInit {
 
   ngOnInit() {
     this.userService.getOrders().subscribe(result =>{
-      this.prevOrders = result['data']
+      this.prevOrders = result['data'].reverse()
       console.log(this.prevOrders)
     },error=>{
       console.log("error!")
     })
     this.userService.getHistory().subscribe(result=>{
-      this.orderHis = result['data']
+      this.orderHis = result['data'].reverse()
       console.log("the ord his is ", this.orderHis)
     })
   }
