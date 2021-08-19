@@ -25,7 +25,7 @@ export class ProfilePage implements OnInit {
     });
   }
    update(){
-     this.http.post(environment.SERVER_URL +'/user/updated',this.data).subscribe((res:any)=>{
+     this.http.post('http://127.0.0.1:8000 ' +'/user/updated',this.data).subscribe((res:any)=>{
       this.status1 = res.status ;
      if (this.status1 == "True"){
       this.user['name']=this.data['name']
