@@ -1,5 +1,13 @@
-
 // app-footer{
 // position: absolute;
 // bottom: 0;
 // }
+::ng-deep snack-bar-container.custom-class {
+  background-color:black
+}
+
+::ng-deep .custom-class .mat-simple-snackbar {
+  font-size: 15px;
+  font-weight: 500;
+  color:crimson
+}

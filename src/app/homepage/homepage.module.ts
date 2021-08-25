@@ -18,6 +18,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { CreditCardDirectivesModule } from 'angular-cc-library';
+import { UserService } from '../user.service';
 
 
 @NgModule({

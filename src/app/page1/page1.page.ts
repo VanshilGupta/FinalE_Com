@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { duration } from 'moment';
 import { UserService } from '../user.service';
 
 @Component({
@@ -11,7 +13,7 @@ import { UserService } from '../user.service';
 export class Page1Page implements OnInit {
   users=[];
   todo = {};
-  constructor(private http: HttpClient,private User : UserService,private route : Router) {
+  constructor(private http: HttpClient,private User : UserService,private route : Router, private snackBar : MatSnackBar) {
   //    this.http.get('https://www.autonise.com/api/course/catalog/').subscribe((result:any) =>{
   //   console.log(result);
   //  })
@@ -34,7 +36,12 @@ export class Page1Page implements OnInit {
             localStorage.setItem('name',data['name'])
             localStorage.setItem('email',data['email'])
           });
-          alert("Login Successful")
+          this.snackBar.open('Login Successfull','Dismiss',{
+            horizontalPosition : 'end',
+            verticalPosition : 'top',
+            duration : 3000,
+            panelClass : 'custom-class2'
+          })
          
           this.route.navigate(["/homepage"])
           

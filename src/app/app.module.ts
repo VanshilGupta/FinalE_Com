@@ -17,11 +17,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { BuyComponent } from './buy/buy.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule, BrowserAnimationsModule,MatSelectModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule, BrowserAnimationsModule,MatSelectModule,MatSnackBarModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, UserService, ChowkidaarGuard,{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true } ],
   bootstrap: [AppComponent],
 })
