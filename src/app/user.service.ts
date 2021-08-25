@@ -3,12 +3,17 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod'; //'http://127.0.0.1:8000'  +'/womenswear/'
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {}
 
   getUser() {
     return this.http.get('http://127.0.0.1:8000' + '/user/details');
@@ -76,10 +81,20 @@ export class UserService {
       this.postCart(cat, id, group).subscribe(
         (data) => {
           console.log(data);
-          alert('Added');
+          this.snackBar.open('Added', 'Dismiss', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: 'custom-class',
+          });
         },
         (error) => {
-          alert(error['error']);
+          this.snackBar.open(error['error'], 'Dismiss', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: 'custom-class',
+          });
         }
       );
     }
@@ -99,10 +114,9 @@ export class UserService {
     });
   }
 
-  orderPlaced(price,direct = false,data=null) {
-    return this.http.post('http://127.0.0.1:8000' + '/user/orderPlaced',data, {
-      params: { totalPrice: price,
-      directBuy : direct },
+  orderPlaced(price, direct = false, data = null) {
+    return this.http.post('http://127.0.0.1:8000' + '/user/orderPlaced', data, {
+      params: { totalPrice: price, directBuy: direct },
     });
   }
   getOrders() {

@@ -21,30 +21,41 @@ export class SignupPage implements OnInit {
   users = [];
   todo = {};
   clickBool = false;
-  constructor(private http: HttpClient, private user: UserService,private route : Router, private snackbar : MatSnackBar) {}
+  constructor(private http: HttpClient, private user: UserService,private route : Router, private snackBar : MatSnackBar) {}
 
   ngOnInit(): void {
     // this.user=this.userinfo.getdata()
   }
 
   submit(f,e){
+    console.log(e.keyCode)
     this.clickBool = true
     this.login(f,e)
   }
 
   login(form, e) {
+    console.log(e.keyCode)
     if (e.keyCode == 13 || this.clickBool ) {
       if (!form.invalid) {
-        console.log(this.todo)
         this.user.register(this.todo).subscribe(
           data => {
             console.log("reg success",data)
-            
             this.route.navigate(["/login"])
+            this.snackBar.open('Registration Successfull','Dismiss',{
+              horizontalPosition : 'end',
+              verticalPosition : 'top',
+              duration : 3000,
+              panelClass : 'custom-class'
+            })
           },
           error => {
             console.log("Reg unsucess",error)
-            alert(error['error']);
+            this.snackBar.open(error['error'],'Dismiss',{
+              horizontalPosition : 'end',
+              verticalPosition : 'top',
+              duration : 3000,
+              panelClass : 'custom-class2'
+            })
           }
         );
       } else {

@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { CreditCardValidators,CreditCard } from 'angular-cc-library';
 import { defer } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -30,7 +31,7 @@ export class BuyComponent implements OnInit {
   public type$ = defer(() => this.detailsForm.get('creditCard').valueChanges)
   .pipe(map((num: string) => CreditCard.cardType(num)))
   constructor(private http:HttpClient, private user : UserService, 
-    private dialogRef : MatDialogRef<BuyComponent>,private _fb:FormBuilder,@Inject(MAT_DIALOG_DATA) data) { 
+    private dialogRef : MatDialogRef<BuyComponent>,private _fb:FormBuilder,@Inject(MAT_DIALOG_DATA) data,private snackBar : MatSnackBar) { 
     this.finaloffer=localStorage.getItem("offer")
     this.data = data;
     this.userCart = data['items']
@@ -63,6 +64,12 @@ export class BuyComponent implements OnInit {
   }
   placeOrder(v){
       this.dialogRef.close(v)
+      this.snackBar.open('Order Placed','Dismiss',{
+        horizontalPosition : 'center',
+        verticalPosition : 'top',
+        duration : 3000,
+        panelClass : 'snack-bar'
+      })
   }
   onSubmit(form) {
     console.log(form);

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
 
@@ -18,7 +19,8 @@ export class WomenPage implements OnInit {
   constructor(
     private service: UserService,
     private ActiveRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private snackBar : MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -35,6 +37,7 @@ export class WomenPage implements OnInit {
   addToCart(id) {
     id = parseInt(id)
     this.service.addToCart(id,this.wValue,this.group)
+    
   }
   change(v) {
     this.service.getdata2(v.value).subscribe((data) => {

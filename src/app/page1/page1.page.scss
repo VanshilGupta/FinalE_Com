@@ -52,3 +52,10 @@ ion-item{
     font-family: 'Rubik';
     font-size: 14px;
 }
+::ng-deep snack-bar-container.custom-class2 {
+    background: rgb(2, 95, 2)
+  }
+  
+::ng-deep .custom-class2 .mat-simple-snackbar {
+    color: white
+  }

@@ -3,6 +3,7 @@ import { JsonPipe } from '@angular/common';
 import { Conditional } from '@angular/compiler';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { BuyComponent } from '../buy/buy.component';
 import { UserService } from '../user.service';
@@ -35,7 +36,8 @@ export class CartPage implements OnInit {
   constructor(
     private service: UserService,
     private route: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackBar : MatSnackBar
   ) {
     this.finaloffer = localStorage.getItem('offer');
   }
