@@ -25,12 +25,13 @@ export class ProfilePage implements OnInit {
     });
   }
    update(){
-     this.http.post('http://127.0.0.1:8000 ' +'/user/updated',this.data).subscribe((res:any)=>{
+     this.http.post(environment.SERVER_URL +'/user/updated',this.data).subscribe((res:any)=>{
       this.status1 = res.status ;
      if (this.status1 == "True"){
       this.user['name']=this.data['name']
       this.user['number']=this.data['number']
       alert("Details Changed Successfully");
+      localStorage.setItem("name",this.user['name'])
      
     }
     else{
