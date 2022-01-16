@@ -24,8 +24,8 @@ export class CartPage implements OnInit {
   DFee: number;
   DFeeStatement: string;
   x = 0;
-  TotalMRP: number = 0;
-  totalPrice: number = 0;
+  TotalMRP = 0;
+  totalPrice = 0;
   qty = [];
   name: string;
   userCart = [];
